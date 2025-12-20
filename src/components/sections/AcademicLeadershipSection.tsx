@@ -1,51 +1,61 @@
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { 
-  ClipboardList, 
+  BookOpen, 
   Users, 
   FileCheck, 
-  Target, 
-  Building2, 
-  GraduationCap 
+  Briefcase, 
+  GraduationCap,
+  Building2
 } from "lucide-react";
 
 const leadershipAreas = [
   {
-    icon: ClipboardList,
-    title: "Academic Planning & Curriculum Governance",
-    description: "Strategic curriculum development aligned with industry standards and accreditation requirements.",
+    icon: BookOpen,
+    title: "Curriculum Design",
+    description: "Industry-aligned curriculum development for UG-PG technical training delivery",
   },
   {
     icon: Users,
-    title: "Faculty Development & Coordination",
-    description: "Training and mentoring faculty members on modern pedagogical approaches and technical skills.",
+    title: "Faculty Development",
+    description: "Training and coordination for academic excellence across departments",
   },
   {
     icon: FileCheck,
-    title: "Examination Operations & Compliance",
-    description: "Ensuring examination integrity and regulatory compliance across academic programs.",
+    title: "Examination Operations",
+    description: "Center Superintendent role with compliance & academic logistics oversight",
   },
   {
-    icon: Target,
-    title: "Training & Placement Strategy",
-    description: "End-to-end placement program design achieving consistently high placement outcomes.",
+    icon: Briefcase,
+    title: "Training & Placement",
+    description: "Student career guidance, placement coordination, and industry engagement",
+  },
+  {
+    icon: GraduationCap,
+    title: "Student Mentorship",
+    description: "Placement readiness, technical interview preparation, and career development",
   },
   {
     icon: Building2,
     title: "Industry Collaboration",
-    description: "Building partnerships with tech companies for internships, projects, and placement opportunities.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Student Mentoring",
-    description: "Personalized guidance for career development and technical skill enhancement.",
+    description: "Building partnerships for internships, projects, and hiring opportunities",
   },
 ];
 
 const AcademicLeadershipSection = () => {
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+
   return (
-    <section id="leadership" className="section-padding bg-background">
-      <div className="section-container">
+    <section id="leadership" className="section-padding bg-background overflow-hidden">
+      <div className="section-container" ref={containerRef}>
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+        >
           <span className="inline-block text-accent font-semibold text-sm tracking-wider uppercase mb-4">
             Leadership
           </span>
@@ -54,29 +64,59 @@ const AcademicLeadershipSection = () => {
             <span className="text-primary"> Administrative Leadership</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Strategic leadership across academic operations, faculty development, and industry partnerships.
+            Strategic oversight of academic programs, faculty development, and institutional growth.
           </p>
-        </div>
+        </motion.div>
 
         {/* Leadership Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {leadershipAreas.map((area, index) => (
-            <div
+          {leadershipAreas.map((item, index) => (
+            <motion.div
               key={index}
-              className="flex items-start gap-4 p-6 rounded-xl border border-border/50 bg-card/30 hover:bg-card hover:border-border transition-all duration-300"
+              initial={{ opacity: 0, y: 40, rotateX: -10 }}
+              animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ 
+                y: -8, 
+                scale: 1.02,
+                transition: { duration: 0.2 } 
+              }}
+              className="relative p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm group overflow-hidden"
             >
-              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                <area.icon className="w-5 h-5" />
+              {/* Animated gradient background */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100"
+                initial={false}
+                transition={{ duration: 0.5 }}
+              />
+              
+              <div className="relative z-10 flex items-start gap-4">
+                <motion.div 
+                  className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300"
+                  whileHover={{ rotate: [0, -5, 5, 0] }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <item.icon className="w-6 h-6" />
+                </motion.div>
+                <div>
+                  <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-bold text-foreground mb-2">
-                  {area.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {area.description}
-                </p>
-              </div>
-            </div>
+
+              {/* Bottom accent line */}
+              <motion.div 
+                className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent"
+                initial={{ scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                transition={{ duration: 0.3 }}
+                style={{ transformOrigin: "left" }}
+              />
+            </motion.div>
           ))}
         </div>
       </div>
