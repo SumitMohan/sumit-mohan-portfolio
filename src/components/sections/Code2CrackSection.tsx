@@ -1,4 +1,7 @@
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { 
   ExternalLink, 
   TrendingUp, 
@@ -6,29 +9,33 @@ import {
   BarChart3, 
   BookOpen, 
   Bot, 
-  Map 
+  Map,
+  Sparkles,
+  Users,
+  MonitorPlay,
+  LayoutDashboard
 } from "lucide-react";
 
 const features = [
   {
     icon: TrendingUp,
     title: "Trending Courses & Coding Questions",
-    description: "Industry-relevant courses and frequently asked coding interview problems curated by experts.",
+    description: "500+ AI, ML & Full Stack outcome-based modules with frequently asked coding interview problems.",
   },
   {
     icon: Shield,
     title: "Secure Proctored Assessments",
-    description: "Normal browser proctoring and dedicated lockdown browser for high-stakes examinations.",
+    description: "AI-powered lockdown browser preventing tech malpractice for high-stakes examinations.",
   },
   {
     icon: BarChart3,
-    title: "End-to-End Student Progress Tracking",
-    description: "Comprehensive performance analytics with consistency and learning behavior insights.",
+    title: "End-to-End Progress Tracking",
+    description: "NBA/NAAC compliance tracking with performance analytics and learning behavior insights.",
   },
   {
-    icon: BookOpen,
+    icon: LayoutDashboard,
     title: "Dedicated Learning Management System",
-    description: "Structured content delivery with centralized tracking and reporting capabilities.",
+    description: "White-label ecosystem with Admin, Faculty & Student portals for structured content delivery.",
   },
   {
     icon: Bot,
@@ -42,15 +49,31 @@ const features = [
   },
 ];
 
+const platformStats = [
+  { label: "Active Users", value: "10K+" },
+  { label: "Courses", value: "500+" },
+  { label: "Assessments", value: "1200+" },
+  { label: "Modules", value: "50+" },
+];
+
 const Code2CrackSection = () => {
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+
   return (
     <section id="code2crack" className="section-padding bg-background overflow-hidden">
-      <div className="section-container">
+      <div className="section-container" ref={containerRef}>
         {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <span className="inline-block text-accent font-semibold text-sm tracking-wider uppercase mb-4">
+        <motion.div 
+          className="max-w-3xl mb-16"
+          initial={{ opacity: 0, x: -50 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.8 }}
+        >
+          <Badge variant="outline" className="mb-4 px-4 py-1.5 text-sm border-accent/50 text-accent bg-accent/5">
+            <Sparkles className="mr-2 h-3.5 w-3.5" />
             Flagship Project
-          </span>
+          </Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
             Code2Crack
             <span className="block text-primary text-2xl md:text-3xl lg:text-4xl font-semibold mt-2">
@@ -62,21 +85,47 @@ const Code2CrackSection = () => {
             training, secure assessments, and personalized AI-driven learning at scale. Built 
             to transform how institutions approach technical education.
           </p>
-        </div>
+        </motion.div>
+
+        {/* Stats Bar */}
+        <motion.div 
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 p-6 rounded-2xl bg-primary/5 border border-primary/10"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {platformStats.map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-primary">{stat.value}</div>
+              <div className="text-sm text-muted-foreground">{stat.label}</div>
+            </div>
+          ))}
+        </motion.div>
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {features.map((feature, index) => (
-            <div
+            <motion.div
               key={index}
-              className="relative p-6 rounded-xl border border-border bg-card/50 hover:bg-card hover:shadow-lg transition-all duration-300 group"
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+              whileHover={{ y: -5, scale: 1.02, transition: { duration: 0.2 } }}
+              className="relative p-6 rounded-xl border border-border bg-card/50 hover:bg-card hover:shadow-lg transition-all duration-300 group overflow-hidden"
             >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10 flex items-start gap-4">
+                <motion.div 
+                  className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <feature.icon className="w-6 h-6" />
-                </div>
+                </motion.div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-2">
+                  <h3 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
                     {feature.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
@@ -84,15 +133,20 @@ const Code2CrackSection = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <motion.div 
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
           <Button 
             size="lg" 
-            className="bg-primary hover:bg-primary/90"
+            className="bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
             onClick={() => window.open('https://code2crack.com', '_blank')}
           >
             <ExternalLink className="mr-2 h-5 w-5" />
@@ -101,11 +155,12 @@ const Code2CrackSection = () => {
           <Button 
             size="lg" 
             variant="outline"
+            className="hover:scale-105 transition-all duration-300"
             onClick={() => window.open('https://code2crack.com/features', '_blank')}
           >
             View Platform Features
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
