@@ -51,15 +51,15 @@ const AcademicLeadershipSection = () => {
       <div className="section-container" ref={containerRef}>
         {/* Header */}
         <motion.div 
-          className="text-center max-w-3xl mx-auto mb-16"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-center max-w-3xl mx-auto mb-20"
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <span className="inline-block text-accent font-semibold text-sm tracking-wider uppercase mb-4">
+          <span className="section-badge mb-6">
             Leadership
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
             Academic &
             <span className="text-primary"> Administrative Leadership</span>
           </h2>
@@ -73,49 +73,43 @@ const AcademicLeadershipSection = () => {
           {leadershipAreas.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40, rotateX: -10 }}
-              animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ 
-                y: -8, 
-                scale: 1.02,
-                transition: { duration: 0.2 } 
-              }}
-              className="relative p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm group overflow-hidden"
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -8, transition: { duration: 0.2 } }}
+              className="group"
             >
-              {/* Animated gradient background */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100"
-                initial={false}
-                transition={{ duration: 0.5 }}
-              />
-              
-              <div className="relative z-10 flex items-start gap-4">
-                <motion.div 
-                  className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300"
-                  whileHover={{ rotate: [0, -5, 5, 0] }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <item.icon className="w-6 h-6" />
-                </motion.div>
-                <div>
-                  <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {item.description}
-                  </p>
+              <div className="h-full p-6 rounded-2xl border border-border/60 bg-card/50 backdrop-blur-sm hover:bg-card hover:shadow-lg hover:border-accent/30 transition-all duration-300 relative overflow-hidden">
+                {/* Gradient on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10 flex items-start gap-4">
+                  <motion.div 
+                    className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300"
+                    whileHover={{ rotate: [0, -5, 5, 0] }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <item.icon className="w-6 h-6" />
+                  </motion.div>
+                  <div>
+                    <h3 className="font-heading font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              {/* Bottom accent line */}
-              <motion.div 
-                className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent"
-                initial={{ scaleX: 0 }}
-                whileHover={{ scaleX: 1 }}
-                transition={{ duration: 0.3 }}
-                style={{ transformOrigin: "left" }}
-              />
+                {/* Bottom accent line */}
+                <motion.div 
+                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accent to-primary"
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.3 }}
+                  style={{ transformOrigin: "left" }}
+                />
+              </div>
             </motion.div>
           ))}
         </div>

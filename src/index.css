@@ -4,52 +4,54 @@
 
 @layer base {
   :root {
-    /* Premium Deep Blue / Indigo Palette */
-    --background: 210 33% 98%;
-    --foreground: 215 32% 17%;
+    /* Premium Slate + Navy Palette */
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 32% 17%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 32% 17%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Deep Indigo Primary */
-    --primary: 213 55% 25%;
+    /* Rich Navy Primary */
+    --primary: 222 47% 20%;
     --primary-foreground: 210 40% 98%;
 
-    /* Soft Blue-Gray Secondary */
-    --secondary: 210 25% 95%;
-    --secondary-foreground: 215 32% 27%;
+    /* Cool Gray Secondary */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 20%;
 
-    --muted: 210 20% 94%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    /* Electric Teal Accent */
-    --accent: 187 70% 45%;
+    /* Vibrant Cyan Accent */
+    --accent: 192 91% 36%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 25% 90%;
-    --input: 214 25% 90%;
-    --ring: 213 55% 35%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 222 47% 30%;
 
-    --radius: 0.625rem;
+    --radius: 0.75rem;
 
-    /* Custom Design Tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(213 55% 20%) 0%, hsl(213 55% 30%) 50%, hsl(200 50% 35%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(210 33% 98%) 0%, hsl(210 25% 96%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 25% 99%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(187 70% 45%) 0%, hsl(200 65% 50%) 100%);
+    /* Premium Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 15%) 0%, hsl(222 47% 22%) 40%, hsl(210 40% 28%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(220 20% 97%) 0%, hsl(220 14% 95%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 20% 99%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(192 91% 36%) 0%, hsl(199 89% 48%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(192 91% 36% / 0.15) 0%, transparent 70%);
     
-    --shadow-sm: 0 1px 2px 0 hsl(215 32% 17% / 0.04);
-    --shadow-md: 0 4px 6px -1px hsl(215 32% 17% / 0.06), 0 2px 4px -2px hsl(215 32% 17% / 0.05);
-    --shadow-lg: 0 10px 15px -3px hsl(215 32% 17% / 0.08), 0 4px 6px -4px hsl(215 32% 17% / 0.04);
-    --shadow-xl: 0 20px 25px -5px hsl(215 32% 17% / 0.08), 0 8px 10px -6px hsl(215 32% 17% / 0.04);
-    --shadow-glow: 0 0 40px hsl(187 70% 45% / 0.15);
-    --shadow-card: 0 1px 3px hsl(215 32% 17% / 0.04), 0 8px 24px hsl(215 32% 17% / 0.06);
+    /* Refined Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.03);
+    --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.05), 0 2px 4px -2px hsl(222 47% 11% / 0.03);
+    --shadow-lg: 0 10px 15px -3px hsl(222 47% 11% / 0.06), 0 4px 6px -4px hsl(222 47% 11% / 0.03);
+    --shadow-xl: 0 20px 25px -5px hsl(222 47% 11% / 0.08), 0 8px 10px -6px hsl(222 47% 11% / 0.03);
+    --shadow-glow: 0 0 60px hsl(192 91% 36% / 0.2);
+    --shadow-card: 0 1px 3px hsl(222 47% 11% / 0.02), 0 10px 30px hsl(222 47% 11% / 0.05);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -62,33 +64,33 @@
   }
 
   .dark {
-    --background: 215 32% 10%;
+    --background: 222 47% 8%;
     --foreground: 210 40% 98%;
 
-    --card: 215 32% 12%;
+    --card: 222 47% 10%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 215 32% 12%;
+    --popover: 222 47% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 187 70% 55%;
-    --primary-foreground: 215 32% 10%;
+    --primary: 192 91% 50%;
+    --primary-foreground: 222 47% 8%;
 
-    --secondary: 215 25% 18%;
+    --secondary: 222 47% 14%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 215 25% 18%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 222 47% 14%;
+    --muted-foreground: 220 14% 60%;
 
-    --accent: 187 70% 50%;
-    --accent-foreground: 215 32% 10%;
+    --accent: 192 91% 50%;
+    --accent-foreground: 222 47% 8%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 215 25% 20%;
-    --input: 215 25% 20%;
-    --ring: 187 70% 50%;
+    --border: 222 47% 16%;
+    --input: 222 47% 16%;
+    --ring: 192 91% 50%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -112,12 +114,16 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Outfit', system-ui, sans-serif;
     @apply font-bold tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-accent/20 text-accent;
   }
 }
 
@@ -127,7 +133,7 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-20 md:py-28 lg:py-36;
   }
 
   .gradient-text {
@@ -135,42 +141,77 @@
     background-image: var(--gradient-hero);
   }
 
+  .gradient-text-accent {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+
   .card-elevated {
-    @apply bg-card rounded-xl border border-border/50;
+    @apply bg-card rounded-2xl border border-border/60 backdrop-blur-sm;
     box-shadow: var(--shadow-card);
   }
 
   .card-hover {
-    @apply transition-all duration-300 ease-out;
+    @apply transition-all duration-500 ease-out;
   }
 
   .card-hover:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-xl);
+  }
+
+  .card-glass {
+    @apply bg-card/80 backdrop-blur-xl rounded-2xl border border-border/40;
+    box-shadow: var(--shadow-glass);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
+    background-size: 200% auto;
+  }
+
+  .btn-premium {
+    @apply relative overflow-hidden;
+  }
+
+  .btn-premium::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .btn-premium:hover::before {
+    transform: translateX(100%);
+  }
+
+  .section-badge {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest;
+    @apply bg-accent/10 text-accent border border-accent/20;
   }
 }
 
 @layer utilities {
   .animate-fade-up {
-    animation: fadeUp 0.6s ease-out forwards;
+    animation: fadeUp 0.8s ease-out forwards;
   }
 
   .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
+    animation: fadeIn 0.6s ease-out forwards;
   }
 
   .animate-slide-in-left {
-    animation: slideInLeft 0.6s ease-out forwards;
+    animation: slideInLeft 0.8s ease-out forwards;
   }
 
   .animate-slide-in-right {
-    animation: slideInRight 0.6s ease-out forwards;
+    animation: slideInRight 0.8s ease-out forwards;
   }
 
   @keyframes fadeUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -190,7 +231,7 @@
   @keyframes slideInLeft {
     from {
       opacity: 0;
-      transform: translateX(-30px);
+      transform: translateX(-40px);
     }
     to {
       opacity: 1;
@@ -201,7 +242,7 @@
   @keyframes slideInRight {
     from {
       opacity: 0;
-      transform: translateX(30px);
+      transform: translateX(40px);
     }
     to {
       opacity: 1;
@@ -214,4 +255,10 @@
   .delay-300 { animation-delay: 300ms; }
   .delay-400 { animation-delay: 400ms; }
   .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+
+  .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+  }
 }

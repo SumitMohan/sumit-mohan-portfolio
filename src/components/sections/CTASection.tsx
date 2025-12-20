@@ -1,7 +1,14 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { FileText, Linkedin, ExternalLink, Mail, Github, GraduationCap } from "lucide-react";
+import { FileText, Linkedin, ExternalLink, Mail, Github, GraduationCap, ArrowUpRight } from "lucide-react";
+
+const socialLinks = [
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/sumitmohan1991/" },
+  { icon: Github, label: "GitHub", href: "https://github.com/sumitmohan1" },
+  { icon: GraduationCap, label: "Scholar", href: "https://scholar.google.com/citations?user=YOUR_ID" },
+  { icon: ExternalLink, label: "Code2Crack", href: "https://code2crack.com" },
+];
 
 const CTASection = () => {
   const containerRef = useRef(null);
@@ -15,62 +22,81 @@ const CTASection = () => {
         style={{ background: 'var(--gradient-hero)' }}
       />
 
-      {/* Animated Background Elements */}
+      {/* Animated Gradient Orbs */}
       <div className="absolute inset-0 z-[1] overflow-hidden">
         <motion.div
-          className="absolute top-20 left-20 w-64 h-64 rounded-full bg-accent/20 blur-3xl"
+          className="absolute top-20 left-20 w-80 h-80 rounded-full"
+          style={{ 
+            background: 'radial-gradient(circle, hsl(192 91% 36% / 0.25) 0%, transparent 70%)'
+          }}
           animate={{ 
             scale: [1, 1.3, 1],
             opacity: [0.3, 0.5, 0.3]
           }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-20 right-20 w-80 h-80 rounded-full bg-primary-foreground/10 blur-3xl"
+          className="absolute bottom-20 right-20 w-96 h-96 rounded-full"
+          style={{ 
+            background: 'radial-gradient(circle, hsl(199 89% 48% / 0.2) 0%, transparent 70%)'
+          }}
           animate={{ 
             scale: [1.2, 1, 1.2],
             opacity: [0.2, 0.4, 0.2]
           }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
+
+      {/* Noise Texture */}
+      <div className="absolute inset-0 z-[2] noise-overlay pointer-events-none" />
       
       <div className="section-container relative z-10" ref={containerRef}>
         <motion.div 
           className="max-w-3xl mx-auto text-center"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
+          <motion.span 
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 text-white/80 text-sm font-medium"
+            initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Let's Build Impactful
-            <span className="block mt-2">Training Ecosystems</span>
-          </motion.h2>
-          <motion.p 
-            className="text-lg text-primary-foreground/75 mb-10 max-w-2xl mx-auto"
+            Ready to Connect?
+          </motion.span>
+
+          <motion.h2 
+            className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1]"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Interested in collaborating on academic programs, EdTech solutions, or 
-            training initiatives? Let's connect and explore opportunities.
-          </motion.p>
+            Let's Build Impactful
+            <span className="block text-accent">Training Ecosystems</span>
+          </motion.h2>
 
-          {/* CTA Buttons */}
-          <motion.div 
-            className="flex flex-wrap justify-center gap-4"
+          <motion.p 
+            className="text-lg text-white/60 mb-12 max-w-xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
+            Interested in collaborating on academic programs, EdTech solutions, 
+            or training initiatives? Let's connect and explore opportunities.
+          </motion.p>
+
+          {/* Main CTA Buttons */}
+          <motion.div 
+            className="flex flex-col sm:flex-row justify-center gap-4 mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             <Button 
               size="lg"
-              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 hover:scale-105 transition-all duration-300 shadow-lg"
+              className="btn-premium bg-white text-primary hover:bg-white/90 shadow-xl rounded-full px-8"
             >
               <FileText className="mr-2 h-5 w-5" />
               Download Resume
@@ -78,48 +104,36 @@ const CTASection = () => {
             <Button 
               size="lg"
               variant="heroOutline"
-              className="hover:scale-105 transition-all duration-300"
-              onClick={() => window.open('https://www.linkedin.com/in/sumitmohan1991/', '_blank')}
-            >
-              <Linkedin className="mr-2 h-5 w-5" />
-              Connect on LinkedIn
-            </Button>
-            <Button 
-              size="lg"
-              variant="heroOutline"
-              className="hover:scale-105 transition-all duration-300"
-              onClick={() => window.open('https://code2crack.com', '_blank')}
-            >
-              <ExternalLink className="mr-2 h-5 w-5" />
-              Explore Code2Crack
-            </Button>
-            <Button 
-              size="lg"
-              variant="heroOutline"
-              className="hover:scale-105 transition-all duration-300"
-              onClick={() => window.open('https://github.com/sumitmohan1', '_blank')}
-            >
-              <Github className="mr-2 h-5 w-5" />
-              GitHub
-            </Button>
-            <Button 
-              size="lg"
-              variant="heroOutline"
-              className="hover:scale-105 transition-all duration-300"
-              onClick={() => window.open('https://scholar.google.com/citations?user=YOUR_ID', '_blank')}
-            >
-              <GraduationCap className="mr-2 h-5 w-5" />
-              Google Scholar
-            </Button>
-            <Button 
-              size="lg"
-              variant="heroOutline"
-              className="hover:scale-105 transition-all duration-300"
+              className="rounded-full px-8"
               onClick={() => window.location.href = 'mailto:sumitmohan91@gmail.com'}
             >
               <Mail className="mr-2 h-5 w-5" />
-              Contact Me
+              Get in Touch
             </Button>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div 
+            className="flex flex-wrap justify-center gap-3"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            {socialLinks.map((link, index) => (
+              <motion.a
+                key={index}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/80 hover:text-white hover:bg-white/20 transition-colors text-sm font-medium"
+              >
+                <link.icon className="w-4 h-4" />
+                {link.label}
+                <ArrowUpRight className="w-3 h-3 opacity-50" />
+              </motion.a>
+            ))}
           </motion.div>
         </motion.div>
       </div>
