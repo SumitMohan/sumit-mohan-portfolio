@@ -78,7 +78,7 @@ const AboutSection = () => {
               About Me
             </motion.span>
 
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-8 leading-tight">
+            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-8 leading-tight">
               Driving Excellence in
               <span className="block text-shimmer mt-2">Technical Education</span>
             </h2>

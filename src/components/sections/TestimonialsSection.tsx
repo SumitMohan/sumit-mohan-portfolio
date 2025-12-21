@@ -50,7 +50,7 @@ const TestimonialsSection = () => {
                         <Sparkles className="w-3.5 h-3.5" />
                         Endorsements
                     </motion.span>
-                    <h2 className="font-heading text-4xl md:text-5xl font-black text-foreground mb-6">
+                    <h2 className="font-heading text-3xl md:text-4xl font-black text-foreground mb-6">
                         Trusted by the <span className="text-shimmer">Academic Community</span>
                     </h2>
                 </motion.div>

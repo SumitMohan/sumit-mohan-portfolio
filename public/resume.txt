@@ -1,0 +1,16 @@
+Sumit Mohan - Resume Structure Placeholder
+
+[Contact Information]
+Email: sumitmohan91@gmail.com
+LinkedIn: https://linkedin.com/in/sumitmohan1991
+GitHub: https://github.com/sumitmohan1
+
+[Summary]
+Head of Technical Training & EdTech Founder with 7+ years of experience...
+
+[Experience]
+- Head - Technical Training @ Chitkara University
+- Senior Technical Trainer @ Sharda University
+- HOD CSE @ SDGI Global University
+
+... (Please upload the actual PDF to public/resume.pdf to replace this)

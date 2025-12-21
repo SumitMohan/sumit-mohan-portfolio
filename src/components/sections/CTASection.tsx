@@ -1,10 +1,11 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { FileText, Linkedin, ExternalLink, Mail, Github, GraduationCap, ArrowUpRight, Sparkles, MessageCircle } from "lucide-react";
+import { FileText, Linkedin, ExternalLink, Mail, Github, GraduationCap, ArrowUpRight, Sparkles, MessageCircle, Download } from "lucide-react";
 
 const socialLinks = [
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/sumitmohan1991/", color: "from-blue-500 to-blue-600" },
+  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/919990562197", color: "from-green-500 to-emerald-600" },
   { icon: Github, label: "GitHub", href: "https://github.com/sumitmohan1", color: "from-gray-600 to-gray-700" },
   { icon: GraduationCap, label: "Scholar", href: "https://scholar.google.com/citations?user=YOUR_ID", color: "from-purple-500 to-purple-600" },
   { icon: ExternalLink, label: "Code2Crack", href: "https://code2crack.com", color: "from-cyan-500 to-blue-500" },
@@ -114,27 +115,82 @@ const CTASection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Button
-              size="xl"
-              className="bg-white text-primary hover:bg-white/95 shadow-2xl shadow-white/20 rounded-full px-8 py-4 text-base font-bold group hover:scale-[1.02] transition-all duration-300"
-            >
-              <FileText className="mr-2 h-5 w-5" />
-              Download Resume
-              <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Button>
-            <Button
-              size="xl"
-              className="rounded-full px-8 py-4 text-base font-semibold border-2 border-white/20 bg-white/5 text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300"
-              onClick={() => window.location.href = 'mailto:sumitmohan91@gmail.com'}
-            >
-              <Mail className="mr-2 h-5 w-5" />
-              Get in Touch
-            </Button>
+            <div className="flex flex-col md:flex-row gap-4 justify-center mb-16">
+              <Button
+                size="xl"
+                className="bg-white text-primary hover:bg-white/95 shadow-2xl shadow-white/20 rounded-full px-8 py-4 text-base font-bold group hover:scale-[1.02] transition-all duration-300"
+                onClick={() => window.open('/Resume.pdf', '_blank')}
+              >
+                <FileText className="mr-2 h-5 w-5" />
+                Download Resume
+                <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Button>
+
+              <Button
+                size="xl"
+                variant="outline"
+                className="border-white/20 hover:bg-white/10 text-white rounded-full px-8 py-4 text-base font-bold transition-all duration-300 backdrop-blur-sm"
+                onClick={() => window.open('/Cover_Letter.pdf', '_blank')}
+              >
+                <FileText className="mr-2 h-5 w-5" />
+                Cover Letter
+                <Download className="ml-2 h-5 w-5" />
+              </Button>
+
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=sumitmohan91@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center whitespace-nowrap text-base font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-white/20 bg-transparent shadow-sm hover:bg-white/10 text-white rounded-full px-8 py-4 backdrop-blur-sm h-14 md:h-[3.5rem]"
+              >
+                <Mail className="mr-2 h-5 w-5" />
+                Get in Touch
+              </a>
+            </div>
           </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center max-w-4xl mx-auto">
+            <a
+              href="mailto:sumitmohan91@gmail.com"
+              className="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm group border border-white/10"
+            >
+              <div className="mx-auto w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <Mail className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-white font-semibold mb-1">Email Me</h3>
+              <p className="text-blue-100/70 text-sm">sumitmohan91@gmail.com</p>
+            </a>
+
+            <a
+              href="http://www.linkedin.com/in/sumit-mohan-dsa-expert"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm group border border-white/10"
+            >
+              <div className="mx-auto w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <Linkedin className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-white font-semibold mb-1">LinkedIn</h3>
+              <p className="text-blue-100/70 text-sm">Connect Professionally</p>
+            </a>
+
+            <a
+              href="https://github.com/SumitMohan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm group border border-white/10"
+            >
+              <div className="mx-auto w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <Github className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-white font-semibold mb-1">GitHub</h3>
+              <p className="text-blue-100/70 text-sm">View Projects</p>
+            </a>
+          </div>
 
           {/* Social Links */}
           <motion.div
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap justify-center gap-4 mt-16"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.5 }}

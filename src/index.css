@@ -147,7 +147,7 @@
   }
 
   .section-padding {
-    @apply py-24 md:py-32 lg:py-40;
+    @apply py-24 md:py-32 lg:py-40 scroll-mt-28;
   }
 
   /* Premium Gradient Text */

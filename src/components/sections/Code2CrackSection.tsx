@@ -100,11 +100,11 @@ const Code2CrackSection = () => {
               Flagship Project
             </motion.div>
 
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-4 leading-[1.05]">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-4 leading-[1.05]">
               <span className="text-shimmer">Code2Crack</span>
             </h2>
 
-            <p className="text-xl md:text-2xl font-heading font-semibold text-foreground/80 mb-6">
+            <p className="text-lg md:text-xl font-heading font-semibold text-foreground/80 mb-6">
               AI-Powered Training & Assessment Platform
             </p>
 

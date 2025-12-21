@@ -1,117 +1,80 @@
-import { motion } from "framer-motion";
+import { ArrowRight, Download, Play, MousePointer2, FileText, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, FileText, ExternalLink, Sparkles, ChevronDown, Play } from "lucide-react";
-import heroBg from "@/assets/hero-bg.png";
+import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
-      {/* Clean Background with subtle gradient */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-slate-50 to-white" />
+    <section id="about" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-background">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/hero-bg.png"
+          alt="Background"
+          className="w-full h-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background"></div>
+      </div>
 
-      {/* Subtle Grid Pattern */}
-      <div
-        className="absolute inset-0 z-[1] opacity-[0.4]"
-        style={{
-          backgroundImage: `linear-gradient(#e5e7eb 1px, transparent 1px),
-                           linear-gradient(90deg, #e5e7eb 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}
-      />
+      {/* Grid Pattern with reduced opacity */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] z-0 opacity-50"></div>
 
-      <div className="section-container relative z-10 pt-32 pb-20 flex flex-col items-center justify-center text-center min-h-[90vh]">
-        <div className="max-w-4xl mx-auto">
-          {/* Badge */}
+      <div className="container relative z-10 px-4 md:px-6">
+        <div className="flex flex-col items-center space-y-8 text-center">
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-sm font-bold tracking-wide mb-8 border border-blue-100">
-              <Sparkles className="w-4 h-4" />
+            <Badge variant="secondary" className="px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary backdrop-blur-sm gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
               Transforming Engineering Education
-            </span>
+            </Badge>
           </motion.div>
 
-          {/* Headline - Code2Crack Style (Dark Green/Navy) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="mb-8"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="space-y-4 max-w-4xl"
           >
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-slate-900 mb-6">
-              Bridging Academia & <span className="text-[#0ea5e9]">Industry</span>
-              <br />
-              <span className="text-[#0f172a]">with AI-Driven Education.</span>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight">
+              Transforming Academic Learning <br className="hidden md:block" />
+              into <span className="text-primary">Industry-Ready AI Skills</span>
             </h1>
+            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl lg:text-2xl leading-relaxed">
+              Head of Technical Training & EdTech Founder building scalable, <span className="text-foreground font-medium">industry-aligned learning ecosystems.</span>
+            </p>
           </motion.div>
 
-          {/* Subheadline - Relaxed Grey */}
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
-          >
-            Head of Technical Training & EdTech Founder building scalable, <span className="text-[#0ea5e9] font-bold">industry-aligned learning ecosystems.</span>
-          </motion.h2>
-
-          {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-5"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-col sm:flex-row gap-4 w-full justify-center"
           >
             <Button
-              size="xl"
-              className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-bold rounded-full px-8 py-4 text-base md:text-lg group shadow-lg shadow-blue-500/25"
-              onClick={() => window.open('https://code2crack.com', '_blank')}
+              size="lg"
+              className="h-12 px-8 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all hover:scale-105"
+              onClick={() => window.open("https://code2crack.com", "_blank")}
             >
-              <Sparkles className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+              <MousePointer2 className="mr-2 h-4 w-4 animate-pulse" />
               Explore Innovation
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button
-              size="xl"
+              size="lg"
               variant="outline"
+              className="h-12 px-8 rounded-full border-2 hover:bg-muted/50 transition-all hover:scale-105 bg-background/50 backdrop-blur-sm"
               onClick={() => document.getElementById('publications')?.scrollIntoView({ behavior: 'smooth' })}
-              className="rounded-full px-8 py-4 text-base md:text-lg font-semibold border-2 border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-all duration-300"
             >
-              <FileText className="mr-2 h-5 w-5 text-slate-500" />
+              <FileText className="mr-2 h-4 w-4" />
               View Research
             </Button>
-          </motion.div>
-
-          {/* Stats Row */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap gap-10 md:gap-16 mt-16 pt-16 border-t border-white/10"
-          >
-            {[
-              { value: "7+", label: "Years Experience" },
-              { value: "10K+", label: "Students Trained" },
-              { value: "95%", label: "Placement Rate" },
-              { value: "50+", label: "Courses Designed" }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                className="group"
-              >
-                <div className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-slate-500 text-sm font-bold tracking-wide uppercase">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
           </motion.div>
         </div>
       </div>
@@ -120,24 +83,18 @@ const HeroSection = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10"
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
-        <motion.button
-          className="flex flex-col items-center gap-3 group"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full animate-bounce hover:bg-transparent"
+          onClick={() => document.getElementById('about')?.nextElementSibling?.scrollIntoView({ behavior: 'smooth' })}
         >
-          <span className="text-slate-400 text-[10px] tracking-[0.3em] uppercase font-bold group-hover:text-slate-600 transition-colors">
-            Scroll Down
-          </span>
-          <ChevronDown className="w-5 h-5 text-slate-400 group-hover:text-slate-600 transition-colors" />
-        </motion.button>
+          <ArrowDown className="h-6 w-6 text-muted-foreground" />
+        </Button>
       </motion.div>
-
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent z-[5]" />
     </section>
   );
 };

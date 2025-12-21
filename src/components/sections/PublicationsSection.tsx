@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ChevronDown, BookOpen, FileText, Sparkles, Mic2 } from "lucide-react";
+import { ChevronDown, BookOpen, FileText, Sparkles, Mic2, GraduationCap, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import conferenceImg from "@/assets/conference.jpg";
 
 const publications = {
@@ -152,11 +153,20 @@ const PublicationsSection = () => {
             <Sparkles className="w-3.5 h-3.5" />
             Research
           </motion.span>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 leading-[1.05]">
-            Publications &
-            <span className="block text-shimmer mt-2">Research Work</span>
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 leading-tight">
+            Publications & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Scholarly Impact</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground">
+
+          <Button
+            onClick={() => window.open('https://scholar.google.com/citations?user=EVVD-Z0AAAAJ', '_blank')}
+            className="gap-2 bg-white text-primary hover:bg-white/90 shadow-lg border border-primary/10"
+            variant="outline"
+          >
+            <GraduationCap className="w-5 h-5" />
+            View Google Scholar
+            <ExternalLink className="w-4 h-4 ml-1 opacity-50" />
+          </Button>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Peer-reviewed publications in <span className="text-foreground font-medium">machine learning</span> and computing.
           </p>
         </motion.div>

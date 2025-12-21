@@ -62,7 +62,7 @@ const ExperienceSection = () => {
             <Sparkles className="w-3.5 h-3.5" />
             Career Journey
           </motion.span>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 leading-[1.05]">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 leading-[1.05]">
             Impact &
             <span className="block text-shimmer mt-2">Professional Journey</span>
           </h2>

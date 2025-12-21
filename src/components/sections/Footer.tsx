@@ -1,16 +1,16 @@
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, ExternalLink, GraduationCap, Phone, Heart, ArrowUpRight } from "lucide-react";
+import { Mail, Linkedin, Github, ExternalLink, GraduationCap, Phone, Heart, ArrowUpRight, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     { icon: Mail, href: "mailto:sumitmohan91@gmail.com", label: "Email", gradient: "from-rose-500 to-red-600" },
-    { icon: Phone, href: "tel:+919990562197", label: "Phone", gradient: "from-emerald-500 to-teal-600" },
+    { icon: MessageCircle, href: "https://wa.me/919990562197", label: "WhatsApp", gradient: "from-emerald-500 to-teal-600" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/sumitmohan1991/", label: "LinkedIn", gradient: "from-blue-500 to-blue-600" },
     { icon: Github, href: "https://github.com/sumitmohan1", label: "GitHub", gradient: "from-gray-500 to-gray-700" },
     { icon: GraduationCap, href: "https://scholar.google.com/citations?user=YOUR_ID", label: "Scholar", gradient: "from-purple-500 to-pink-600" },
-    { icon: ExternalLink, href: "https://code2crack.com", label: "Code2Crack", gradient: "from-cyan-500 to-blue-600" },
+    { icon: ExternalLink, href: "https://code2crack.com", label: "Code2Crack", gradient: "from-cyan-500 to-blue-500" },
   ];
 
   const quickLinks = [
@@ -57,13 +57,45 @@ const Footer = () => {
             <p className="text-white/70 text-base mb-6 max-w-xs leading-relaxed">
               Head of Technical Training & Academic Leader. Building industry-aligned training ecosystems.
             </p>
-            <a
-              href="tel:+919990562197"
-              className="inline-flex items-center gap-2 text-white/40 hover:text-white/70 transition-colors text-sm"
-            >
-              <Phone className="w-4 h-4" />
-              +91 99905 62197
-            </a>
+            <ul className="space-y-3 text-white/70 text-sm">
+              <li>
+                <a href="mailto:sumitmohan91@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors group">
+                  <Mail className="h-4 w-4 group-hover:text-primary transition-colors" />
+                  sumitmohan91@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/919990562197"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-white transition-colors group"
+                >
+                  <MessageCircle className="h-4 w-4 group-hover:text-primary transition-colors" />
+                  +91-99905-62197
+                </a>
+              </li>
+              <li className="flex gap-4 pt-2">
+                <a
+                  href="https://github.com/SumitMohan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-muted hover:bg-primary/10 p-2 rounded-full transition-all hover:text-primary"
+                  aria-label="GitHub"
+                >
+                  <Github className="h-4 w-4" />
+                </a>
+                <a
+                  href="http://www.linkedin.com/in/sumit-mohan-dsa-expert"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-muted hover:bg-primary/10 p-2 rounded-full transition-all hover:text-primary"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </a>
+              </li>
+            </ul>
           </motion.div>
 
           {/* Quick Links */}
