@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin, Calendar } from "lucide-react";
+import { MapPin, Calendar, Sparkles } from "lucide-react";
 
 const experiences = [
   {
@@ -54,14 +54,19 @@ const ExperienceSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <span className="section-badge mb-6">
+          <motion.span 
+            className="section-badge mb-8 inline-flex"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+          >
+            <Sparkles className="w-3.5 h-3.5" />
             Career Journey
-          </span>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+          </motion.span>
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 leading-[1.05]">
             Professional
-            <span className="text-primary"> Experience</span>
+            <span className="block text-shimmer mt-2">Experience</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg md:text-xl text-muted-foreground">
             A progressive journey through technical education and academic leadership.
           </p>
         </motion.div>
@@ -71,8 +76,8 @@ const ExperienceSection = () => {
           <div className="relative">
             {/* Vertical Line */}
             <motion.div 
-              className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-[2px] md:-translate-x-[1px]"
-              style={{ background: 'linear-gradient(to bottom, hsl(var(--accent)), hsl(var(--primary)), hsl(var(--accent) / 0.3))' }}
+              className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-[3px] md:-translate-x-[1.5px] rounded-full"
+              style={{ background: 'var(--gradient-accent)' }}
               initial={{ scaleY: 0 }}
               animate={isInView ? { scaleY: 1 } : {}}
               transition={{ duration: 1.5, ease: "easeOut" }}
@@ -90,13 +95,13 @@ const ExperienceSection = () => {
               >
                 {/* Timeline Dot */}
                 <motion.div 
-                  className="absolute left-6 md:left-1/2 w-[14px] h-[14px] -translate-x-1/2 rounded-full border-[3px] border-background z-10"
+                  className="absolute left-6 md:left-1/2 w-4 h-4 -translate-x-1/2 rounded-full border-4 border-background z-10"
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.15 }}
                   style={{ 
-                    backgroundColor: exp.current ? 'hsl(var(--accent))' : 'hsl(var(--primary))',
-                    boxShadow: exp.current ? '0 0 20px hsl(var(--accent) / 0.5)' : undefined
+                    background: exp.current ? 'var(--gradient-accent)' : 'hsl(var(--primary))',
+                    boxShadow: exp.current ? '0 0 25px hsl(192 100% 50% / 0.5)' : undefined
                   }}
                 />
 
@@ -105,29 +110,32 @@ const ExperienceSection = () => {
                   index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
                 }`}>
                   <motion.div 
-                    className="card-elevated p-6 group hover:shadow-xl transition-all duration-300"
-                    whileHover={{ y: -4 }}
+                    className="card-elevated p-7 group hover:shadow-2xl transition-all duration-300 relative overflow-hidden"
+                    whileHover={{ y: -6 }}
                   >
+                    {/* Top gradient accent on hover */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    
                     {exp.current && (
-                      <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold mb-4">
+                      <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-xs font-bold mb-4 tracking-wide">
                         <motion.span 
                           className="w-2 h-2 rounded-full bg-accent"
-                          animate={{ opacity: [1, 0.4, 1] }}
+                          animate={{ opacity: [1, 0.4, 1], scale: [1, 1.2, 1] }}
                           transition={{ duration: 1.5, repeat: Infinity }}
                         />
                         Current Role
                       </span>
                     )}
-                    <h3 className="font-heading text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="font-heading text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                       {exp.role}
                     </h3>
-                    <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                      <span className="flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-accent" />
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
+                      <span className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4 text-accent" />
                         {exp.institution}
                       </span>
-                      <span className="flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5" />
+                      <span className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
                         {exp.period}
                       </span>
                     </div>
