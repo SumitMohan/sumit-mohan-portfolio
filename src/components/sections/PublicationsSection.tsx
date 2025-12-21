@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ChevronDown, BookOpen, FileText, ExternalLink } from "lucide-react";
+import { ChevronDown, BookOpen, FileText, Sparkles } from "lucide-react";
 
 const publications = {
   sci: [
@@ -26,47 +26,48 @@ const PublicationCategory = ({
   items, 
   delay,
   isInView,
-  accentColor = "accent"
+  gradient,
+  iconGradient
 }: { 
   title: string; 
   badge: string; 
   items: { title: string; impact?: string }[]; 
   delay: number;
   isInView: boolean;
-  accentColor?: "accent" | "primary" | "secondary";
+  gradient: string;
+  iconGradient: string;
 }) => {
   const [isOpen, setIsOpen] = useState(true);
-
-  const colorStyles = {
-    accent: "bg-accent/10 text-accent border-accent/20",
-    primary: "bg-primary/10 text-primary border-primary/20",
-    secondary: "bg-muted text-foreground border-border"
-  };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay }}
-      className="card-elevated overflow-hidden"
+      className="card-elevated overflow-hidden group"
     >
+      {/* Top gradient line */}
+      <div className={`h-1 bg-gradient-to-r ${gradient} opacity-60`} />
+      
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-6 hover:bg-muted/50 transition-colors"
+        className="w-full flex items-center justify-between p-6 hover:bg-muted/30 transition-colors"
       >
-        <div className="flex items-center gap-4">
-          <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${colorStyles[accentColor]}`}>
-            <BookOpen className="w-5 h-5" />
+        <div className="flex items-center gap-5">
+          <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${iconGradient} flex items-center justify-center shadow-lg`}>
+            <BookOpen className="w-6 h-6 text-white" />
           </div>
           <div className="text-left">
-            <h3 className="font-heading font-bold text-foreground">{title}</h3>
-            <span className="text-xs font-semibold text-accent">{badge}</span>
+            <h3 className="font-heading font-bold text-lg text-foreground">{title}</h3>
+            <span className={`text-xs font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent uppercase tracking-wider`}>
+              {badge}
+            </span>
           </div>
         </div>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          className="text-muted-foreground"
+          className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-accent/10 group-hover:text-accent transition-colors"
         >
           <ChevronDown className="w-5 h-5" />
         </motion.div>
@@ -88,17 +89,19 @@ const PublicationCategory = ({
               initial={{ opacity: 0, x: -20 }}
               animate={isOpen ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.3, delay: index * 0.08 }}
-              whileHover={{ x: 6 }}
-              className="flex items-start gap-3 p-4 rounded-xl bg-muted/30 hover:bg-muted/60 transition-all group cursor-default"
+              whileHover={{ x: 8 }}
+              className="flex items-start gap-4 p-5 rounded-xl bg-muted/30 hover:bg-muted/50 border border-transparent hover:border-accent/20 transition-all group/item cursor-default"
             >
-              <FileText className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+              <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${iconGradient} bg-opacity-20 flex items-center justify-center flex-shrink-0`}>
+                <FileText className="w-5 h-5 text-white" />
+              </div>
               <div className="flex-1">
-                <p className="text-foreground font-medium group-hover:text-primary transition-colors">
+                <p className="text-foreground font-medium group-hover/item:text-primary transition-colors leading-relaxed">
                   {item.title}
                 </p>
                 {item.impact && (
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-accent mt-2">
-                    {item.impact}
+                  <span className={`inline-flex items-center gap-1 text-xs font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent mt-2`}>
+                    ★ {item.impact}
                   </span>
                 )}
               </div>
@@ -115,8 +118,24 @@ const PublicationsSection = () => {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="publications" className="section-padding" style={{ background: 'var(--gradient-subtle)' }}>
-      <div className="section-container" ref={containerRef}>
+    <section id="publications" className="section-padding relative overflow-hidden" style={{ background: 'var(--gradient-subtle)' }}>
+      {/* Decorative Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div 
+          className="absolute top-20 left-10 w-[350px] h-[350px] rounded-full opacity-30"
+          style={{ background: 'radial-gradient(circle, hsl(192 100% 50% / 0.06) 0%, transparent 70%)' }}
+          animate={{ x: [0, 20, 0] }}
+          transition={{ duration: 12, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute bottom-20 right-10 w-[400px] h-[400px] rounded-full opacity-20"
+          style={{ background: 'radial-gradient(circle, hsl(280 100% 60% / 0.06) 0%, transparent 70%)' }}
+          animate={{ y: [0, 30, 0] }}
+          transition={{ duration: 15, repeat: Infinity }}
+        />
+      </div>
+
+      <div className="section-container relative z-10" ref={containerRef}>
         {/* Header */}
         <motion.div 
           className="text-center max-w-3xl mx-auto mb-16"
@@ -124,27 +143,33 @@ const PublicationsSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <span className="section-badge mb-6">
+          <motion.span 
+            className="section-badge mb-8 inline-flex"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+          >
+            <Sparkles className="w-3.5 h-3.5" />
             Research
-          </span>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+          </motion.span>
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 leading-[1.05]">
             Publications &
-            <span className="text-primary"> Research</span>
+            <span className="block text-shimmer mt-2">Research Work</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Peer-reviewed publications in machine learning and computing.
+          <p className="text-lg md:text-xl text-muted-foreground">
+            Peer-reviewed publications in <span className="text-foreground font-medium">machine learning</span> and computing.
           </p>
         </motion.div>
 
         {/* Publications */}
-        <div className="max-w-3xl mx-auto space-y-4">
+        <div className="max-w-3xl mx-auto space-y-5">
           <PublicationCategory
             title="SCI-Indexed Publications"
             badge="High Impact Factor"
             items={publications.sci}
             delay={0.2}
             isInView={isInView}
-            accentColor="accent"
+            gradient="from-amber-500 to-orange-500"
+            iconGradient="from-amber-500 to-orange-600"
           />
           <PublicationCategory
             title="Scopus-Indexed Publications"
@@ -152,7 +177,8 @@ const PublicationsSection = () => {
             items={publications.scopus}
             delay={0.3}
             isInView={isInView}
-            accentColor="primary"
+            gradient="from-cyan-500 to-blue-500"
+            iconGradient="from-cyan-500 to-blue-600"
           />
           <PublicationCategory
             title="UGC-Care Publications"
@@ -160,7 +186,8 @@ const PublicationsSection = () => {
             items={publications.ugc}
             delay={0.4}
             isInView={isInView}
-            accentColor="secondary"
+            gradient="from-purple-500 to-pink-500"
+            iconGradient="from-purple-500 to-pink-600"
           />
         </div>
       </div>
