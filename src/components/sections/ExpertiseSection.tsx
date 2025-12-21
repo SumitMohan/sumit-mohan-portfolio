@@ -55,13 +55,13 @@ const ExpertiseSection = () => {
     <section id="expertise" className="section-padding relative overflow-hidden" style={{ background: 'var(--gradient-subtle)' }}>
       {/* Decorative Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div 
+        <motion.div
           className="absolute top-20 left-10 w-[400px] h-[400px] rounded-full opacity-30"
           style={{ background: 'radial-gradient(circle, hsl(192 100% 50% / 0.08) 0%, transparent 70%)' }}
           animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
           transition={{ duration: 15, repeat: Infinity }}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-20 right-10 w-[500px] h-[500px] rounded-full opacity-20"
           style={{ background: 'radial-gradient(circle, hsl(280 100% 60% / 0.08) 0%, transparent 70%)' }}
           animate={{ x: [0, -20, 0], y: [0, 30, 0] }}
@@ -71,13 +71,13 @@ const ExpertiseSection = () => {
 
       <div className="section-container relative z-10" ref={containerRef}>
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="text-center max-w-3xl mx-auto mb-20"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <motion.span 
+          <motion.span
             className="section-badge mb-8 inline-flex"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -86,13 +86,12 @@ const ExpertiseSection = () => {
             What I Do
           </motion.span>
 
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 leading-[1.05]">
-            Core Areas of
-            <span className="block text-shimmer mt-2">Specialization</span>
+          <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6 leading-tight">
+            Core Areas of <span className="text-shimmer inline-block">Specialization</span>
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Deep expertise in technical education, curriculum development, and building 
+            Deep expertise in technical education, curriculum development, and building
             <span className="text-foreground font-medium"> scalable training ecosystems</span>.
           </p>
         </motion.div>
@@ -108,16 +107,16 @@ const ExpertiseSection = () => {
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
               className="group relative"
             >
-              <div className="card-elevated p-8 h-full relative overflow-hidden">
+              <div className="card-elevated p-8 h-full relative overflow-hidden border border-white/5 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors">
                 {/* Gradient Background on Hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                
+
                 {/* Top Accent Line */}
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                
+
                 <div className="relative z-10">
                   {/* Icon with Gradient Background */}
-                  <motion.div 
+                  <motion.div
                     className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
                     whileHover={{ rotate: [0, -5, 5, 0], scale: 1.05 }}
                     transition={{ duration: 0.4 }}

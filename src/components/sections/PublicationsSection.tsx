@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ChevronDown, BookOpen, FileText, Sparkles } from "lucide-react";
+import { ChevronDown, BookOpen, FileText, Sparkles, Mic2 } from "lucide-react";
+import conferenceImg from "@/assets/conference.jpg";
 
 const publications = {
   sci: [
@@ -20,18 +21,18 @@ const publications = {
   ],
 };
 
-const PublicationCategory = ({ 
-  title, 
-  badge, 
-  items, 
+const PublicationCategory = ({
+  title,
+  badge,
+  items,
   delay,
   isInView,
   gradient,
   iconGradient
-}: { 
-  title: string; 
-  badge: string; 
-  items: { title: string; impact?: string }[]; 
+}: {
+  title: string;
+  badge: string;
+  items: { title: string; impact?: string }[];
   delay: number;
   isInView: boolean;
   gradient: string;
@@ -48,7 +49,7 @@ const PublicationCategory = ({
     >
       {/* Top gradient line */}
       <div className={`h-1 bg-gradient-to-r ${gradient} opacity-60`} />
-      
+
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between p-6 hover:bg-muted/30 transition-colors"
@@ -72,10 +73,10 @@ const PublicationCategory = ({
           <ChevronDown className="w-5 h-5" />
         </motion.div>
       </button>
-      
+
       <motion.div
         initial={false}
-        animate={{ 
+        animate={{
           height: isOpen ? "auto" : 0,
           opacity: isOpen ? 1 : 0
         }}
@@ -121,13 +122,13 @@ const PublicationsSection = () => {
     <section id="publications" className="section-padding relative overflow-hidden" style={{ background: 'var(--gradient-subtle)' }}>
       {/* Decorative Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div 
+        <motion.div
           className="absolute top-20 left-10 w-[350px] h-[350px] rounded-full opacity-30"
           style={{ background: 'radial-gradient(circle, hsl(192 100% 50% / 0.06) 0%, transparent 70%)' }}
           animate={{ x: [0, 20, 0] }}
           transition={{ duration: 12, repeat: Infinity }}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-20 right-10 w-[400px] h-[400px] rounded-full opacity-20"
           style={{ background: 'radial-gradient(circle, hsl(280 100% 60% / 0.06) 0%, transparent 70%)' }}
           animate={{ y: [0, 30, 0] }}
@@ -137,13 +138,13 @@ const PublicationsSection = () => {
 
       <div className="section-container relative z-10" ref={containerRef}>
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="text-center max-w-3xl mx-auto mb-16"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <motion.span 
+          <motion.span
             className="section-badge mb-8 inline-flex"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -160,38 +161,81 @@ const PublicationsSection = () => {
           </p>
         </motion.div>
 
-        {/* Publications */}
-        <div className="max-w-3xl mx-auto space-y-5">
-          <PublicationCategory
-            title="SCI-Indexed Publications"
-            badge="High Impact Factor"
-            items={publications.sci}
-            delay={0.2}
-            isInView={isInView}
-            gradient="from-amber-500 to-orange-500"
-            iconGradient="from-amber-500 to-orange-600"
-          />
-          <PublicationCategory
-            title="Scopus-Indexed Publications"
-            badge="3 Publications"
-            items={publications.scopus}
-            delay={0.3}
-            isInView={isInView}
-            gradient="from-cyan-500 to-blue-500"
-            iconGradient="from-cyan-500 to-blue-600"
-          />
-          <PublicationCategory
-            title="UGC-Care Publications"
-            badge="2 Publications"
-            items={publications.ugc}
-            delay={0.4}
-            isInView={isInView}
-            gradient="from-purple-500 to-pink-500"
-            iconGradient="from-purple-500 to-pink-600"
-          />
+
+
+        <div className="grid lg:grid-cols-5 gap-12 items-start">
+          {/* Publications List - Left Side */}
+          <div className="lg:col-span-3 space-y-5">
+            <PublicationCategory
+              title="SCI-Indexed Publications"
+              badge="High Impact Factor"
+              items={publications.sci}
+              delay={0.2}
+              isInView={isInView}
+              gradient="from-amber-500 to-orange-500"
+              iconGradient="from-amber-500 to-orange-600"
+            />
+            <PublicationCategory
+              title="Scopus-Indexed Publications"
+              badge="3 Publications"
+              items={publications.scopus}
+              delay={0.3}
+              isInView={isInView}
+              gradient="from-cyan-500 to-blue-500"
+              iconGradient="from-cyan-500 to-blue-600"
+            />
+            <PublicationCategory
+              title="UGC-Care Publications"
+              badge="2 Publications"
+              items={publications.ugc}
+              delay={0.4}
+              isInView={isInView}
+              gradient="from-purple-500 to-pink-500"
+              iconGradient="from-purple-500 to-pink-600"
+            />
+          </div>
+
+          {/* Conference Image - Right Side */}
+          <motion.div
+            className="lg:col-span-2 relative"
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <div className="sticky top-24">
+              <div className="card-elevated p-3 rounded-2xl bg-white/5 border border-white/10 overflow-hidden relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+                <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
+                  <img
+                    src={conferenceImg}
+                    alt="Speaking at Tech Conference"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
+
+                  {/* Content Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/90 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider mb-3">
+                      <Mic2 className="w-3.5 h-3.5" />
+                      Keynote Speaker
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2 text-shadow-sm">
+                      Driving Thought Leadership
+                    </h3>
+                    <p className="text-white/80 text-sm leading-relaxed">
+                      Delivering talks on AI in Education, Future of Work, and Scalable Learning Ecosystems at premier tech summits.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

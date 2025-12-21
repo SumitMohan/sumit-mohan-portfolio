@@ -28,7 +28,7 @@
     /* Electric Cyan Accent */
     --accent: 192 100% 42%;
     --accent-foreground: 0 0% 100%;
-    
+
     /* Gradient Colors */
     --gradient-start: 192 100% 42%;
     --gradient-mid: 220 100% 60%;
@@ -50,7 +50,7 @@
     --gradient-accent: linear-gradient(135deg, hsl(192 100% 42%) 0%, hsl(220 100% 60%) 50%, hsl(280 100% 60%) 100%);
     --gradient-text: linear-gradient(135deg, hsl(192 100% 50%) 0%, hsl(220 100% 65%) 50%, hsl(280 100% 65%) 100%);
     --gradient-glow: radial-gradient(ellipse at center, hsl(192 100% 42% / 0.2) 0%, transparent 70%);
-    
+
     /* Refined Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.03);
     --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.05), 0 2px 4px -2px hsl(222 47% 11% / 0.03);
@@ -126,7 +126,12 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Outfit', system-ui, sans-serif;
     @apply font-bold tracking-tight;
   }
@@ -161,14 +166,12 @@
   /* Animated Gradient Text */
   .text-shimmer {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(
-      90deg,
-      hsl(var(--accent)) 0%,
-      hsl(220 100% 65%) 25%,
-      hsl(280 100% 65%) 50%,
-      hsl(220 100% 65%) 75%,
-      hsl(var(--accent)) 100%
-    );
+    background-image: linear-gradient(90deg,
+        hsl(var(--accent)) 0%,
+        hsl(220 100% 65%) 25%,
+        hsl(280 100% 65%) 50%,
+        hsl(220 100% 65%) 75%,
+        hsl(var(--accent)) 100%);
     background-size: 200% auto;
     animation: shimmer 4s linear infinite;
   }
@@ -246,22 +249,40 @@
 
 @layer utilities {
   @keyframes shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+      background-position: 200% 0;
+    }
+
+    100% {
+      background-position: -200% 0;
+    }
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    25% { transform: translateY(-10px) rotate(1deg); }
-    75% { transform: translateY(5px) rotate(-1deg); }
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+
+    25% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+
+    75% {
+      transform: translateY(5px) rotate(-1deg);
+    }
   }
 
   @keyframes pulse-glow {
-    0%, 100% { 
+
+    0%,
+    100% {
       opacity: 0.4;
       transform: scale(1);
     }
-    50% { 
+
+    50% {
       opacity: 0.7;
       transform: scale(1.05);
     }
@@ -272,6 +293,7 @@
       opacity: 0;
       transform: translateY(40px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -279,8 +301,13 @@
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 
   @keyframes slideInLeft {
@@ -288,6 +315,7 @@
       opacity: 0;
       transform: translateX(-60px);
     }
+
     to {
       opacity: 1;
       transform: translateX(0);
@@ -299,26 +327,64 @@
       opacity: 0;
       transform: translateX(60px);
     }
+
     to {
       opacity: 1;
       transform: translateX(0);
     }
   }
 
-  .animate-fade-up { animation: fadeUp 0.8s ease-out forwards; }
-  .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
-  .animate-slide-in-left { animation: slideInLeft 0.8s ease-out forwards; }
-  .animate-slide-in-right { animation: slideInRight 0.8s ease-out forwards; }
-  .animate-float { animation: float 6s ease-in-out infinite; }
-  .animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
-  .animate-shimmer { animation: shimmer 3s linear infinite; }
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
 
-  .delay-100 { animation-delay: 100ms; }
-  .delay-200 { animation-delay: 200ms; }
-  .delay-300 { animation-delay: 300ms; }
-  .delay-400 { animation-delay: 400ms; }
-  .delay-500 { animation-delay: 500ms; }
-  .delay-600 { animation-delay: 600ms; }
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s linear infinite;
+  }
+
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .delay-600 {
+    animation-delay: 600ms;
+  }
 
   .noise-overlay {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");

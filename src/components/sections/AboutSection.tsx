@@ -1,14 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Award, Users, BookOpen, TrendingUp, ArrowUpRight, Sparkles } from "lucide-react";
-import sumitPhoto from "@/assets/sumit-photo.png";
+import sumitPhoto from "@/assets/sumit-photo-new.jpg";
+import teachingImg from "@/assets/teaching.jpg";
 
-const stats = [
-  { icon: Award, value: 7, suffix: "+", label: "Years Experience", color: "from-cyan-500 to-blue-500" },
-  { icon: Users, value: 10000, suffix: "+", label: "Students Trained", color: "from-purple-500 to-pink-500" },
-  { icon: BookOpen, value: 50, suffix: "+", label: "Courses Designed", color: "from-amber-500 to-orange-500" },
-  { icon: TrendingUp, value: 95, suffix: "%", label: "Placement Rate", color: "from-emerald-500 to-teal-500" },
-];
+
 
 const AnimatedCounter = ({ value, suffix, color }: { value: number; suffix: string; color: string }) => {
   const [count, setCount] = useState(0);
@@ -17,7 +13,7 @@ const AnimatedCounter = ({ value, suffix, color }: { value: number; suffix: stri
 
   useEffect(() => {
     if (!isInView) return;
-    
+
     let startTimestamp: number | null = null;
     const duration = 2000;
 
@@ -48,7 +44,7 @@ const AboutSection = () => {
     <section id="about" className="section-padding bg-background relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none">
-        <motion.div 
+        <motion.div
           className="absolute top-40 right-40 w-[500px] h-[500px] rounded-full opacity-30"
           style={{ background: 'radial-gradient(circle, hsl(192 100% 50% / 0.1) 0%, transparent 70%)' }}
           animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
@@ -56,7 +52,7 @@ const AboutSection = () => {
         />
       </div>
       <div className="absolute bottom-0 left-0 w-1/3 h-1/2 pointer-events-none">
-        <motion.div 
+        <motion.div
           className="absolute bottom-20 left-20 w-[300px] h-[300px] rounded-full opacity-20"
           style={{ background: 'radial-gradient(circle, hsl(280 100% 60% / 0.1) 0%, transparent 70%)' }}
           animate={{ scale: [1.1, 1, 1.1] }}
@@ -72,7 +68,7 @@ const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <motion.span 
+            <motion.span
               className="section-badge mb-8 inline-flex"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -82,23 +78,23 @@ const AboutSection = () => {
               About Me
             </motion.span>
 
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-8 leading-[1.05]">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-8 leading-tight">
               Driving Excellence in
               <span className="block text-shimmer mt-2">Technical Education</span>
             </h2>
 
             <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
               <p>
-                Academic and Technical Training Leader with <span className="text-foreground font-semibold">7+ years of experience</span> across 
-                universities, specializing in Data Structures, AI/ML, GenAI, and placement-oriented curriculum design.
+                As an <span className="text-foreground font-semibold">Academic Leader & Technologist</span>, I believe that the gap between
+                university curriculum and industry expectations is not just a syllabus issue—it's a <span className="text-foreground font-semibold">pedagogical challenge</span>.
               </p>
               <p>
-                Proven track record of leading university-wide training programs, mentoring large student cohorts, 
-                improving placement outcomes, and aligning academic delivery with <span className="text-foreground font-semibold">industry hiring standards</span>.
+                My work focuses on building <span className="text-foreground font-semibold">scalable learning ecosystems</span> that integrate
+                AI-driven personalized learning with rigorous, outcome-based assessment models.
               </p>
               <p>
-                Creator of <span className="gradient-text-static font-bold">Code2Crack</span> — an AI-powered EdTech platform transforming 
-                how institutions approach technical education at scale.
+                Creator of <span className="gradient-text-static font-bold">Code2Crack</span> — an AI-powered EdTech platform that has transformed
+                technical training for over <span className="text-foreground font-bold">10,000 students</span>, proving that high-quality education can be democratized at scale.
               </p>
             </div>
 
@@ -108,7 +104,7 @@ const AboutSection = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-10"
             >
-              <a 
+              <a
                 href="#experience"
                 className="inline-flex items-center gap-3 text-accent font-bold text-lg hover:gap-4 transition-all group"
               >
@@ -124,7 +120,7 @@ const AboutSection = () => {
           {/* Right Side - Photo + Stats */}
           <div className="space-y-12">
             {/* Profile Image */}
-            <motion.div 
+            <motion.div
               className="flex justify-center lg:justify-end"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -132,30 +128,30 @@ const AboutSection = () => {
             >
               <div className="relative group">
                 {/* Animated Glow */}
-                <motion.div 
+                <motion.div
                   className="absolute -inset-6 rounded-[2rem] blur-2xl"
                   style={{ background: 'linear-gradient(135deg, hsl(192 100% 50% / 0.2) 0%, hsl(280 100% 60% / 0.15) 100%)' }}
-                  animate={{ 
+                  animate={{
                     scale: [1, 1.05, 1],
                     opacity: [0.4, 0.6, 0.4]
                   }}
                   transition={{ duration: 4, repeat: Infinity }}
                 />
                 {/* Gradient Border */}
-                <div 
+                <div
                   className="absolute -inset-[3px] rounded-[2rem] opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                   style={{ background: 'var(--gradient-accent)' }}
                 />
                 {/* Image Container */}
                 <div className="relative bg-background p-1 rounded-[2rem]">
-                  <img 
-                    src={sumitPhoto} 
-                    alt="Sumit Mohan - Head of Technical Training" 
-                    className="relative w-64 md:w-72 lg:w-80 h-64 md:h-72 lg:h-80 object-cover rounded-[1.75rem] group-hover:scale-[1.02] transition-transform duration-700"
+                  <img
+                    src={sumitPhoto}
+                    alt="Sumit Mohan - Head of Technical Training"
+                    className="relative w-full max-w-[350px] md:max-w-[400px] h-auto object-cover rounded-[1.75rem] group-hover:scale-[1.02] transition-transform duration-700 shadow-2xl"
                   />
                 </div>
                 {/* Floating Badge */}
-                <motion.div 
+                <motion.div
                   className="absolute -bottom-4 -right-4 bg-card rounded-2xl px-5 py-3 shadow-2xl border border-border/50"
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -170,26 +166,36 @@ const AboutSection = () => {
             </motion.div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-5">
-              {stats.map((stat, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                  whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                  className="card-elevated card-hover p-6 group"
-                >
-                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} bg-opacity-10 mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <stat.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} color={stat.color} />
-                  <div className="text-sm text-muted-foreground font-medium mt-2 tracking-wide">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            {/* Mission Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="card-elevated p-0 relative overflow-hidden mt-8 group"
+            >
+              {/* Background Image with Overlay */}
+              <div className="absolute inset-0">
+                <img
+                  src={teachingImg}
+                  alt="Mentoring Students"
+                  className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background/95" />
+              </div>
+
+              <div className="relative z-10 p-8">
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-accent to-purple-500" />
+                <h3 className="font-heading text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
+                  <TrendingUp className="w-6 h-6 text-accent" />
+                  My Mission
+                </h3>
+                <p className="text-muted-foreground text-lg italic relative">
+                  <span className="text-5xl text-accent/20 absolute -top-4 -left-2 font-serif">"</span>
+                  To empower the next generation of engineers with the cognitive tools and technical adaptability required to thrive in an AI-first world.
+                  <span className="text-5xl text-accent/20 absolute -bottom-8 right-0 font-serif">"</span>
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -1,18 +1,19 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { 
-  ExternalLink, 
-  TrendingUp, 
-  Shield, 
-  BarChart3, 
-  Bot, 
+import {
+  ExternalLink,
+  TrendingUp,
+  Shield,
+  BarChart3,
+  Bot,
   Map,
   Sparkles,
   LayoutDashboard,
   ArrowRight,
   Zap
 } from "lucide-react";
+import dashboardMockup from "@/assets/code2crack-dashboard.png";
 
 const features = [
   {
@@ -68,13 +69,13 @@ const Code2CrackSection = () => {
     <section id="code2crack" className="section-padding bg-background relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div 
+        <motion.div
           className="absolute top-20 left-1/4 w-[500px] h-[500px] rounded-full opacity-40"
           style={{ background: 'radial-gradient(circle, hsl(192 100% 50% / 0.08) 0%, transparent 70%)' }}
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 12, repeat: Infinity }}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-20 right-1/4 w-[600px] h-[600px] rounded-full opacity-30"
           style={{ background: 'radial-gradient(circle, hsl(280 100% 60% / 0.06) 0%, transparent 70%)' }}
           animate={{ scale: [1.1, 1, 1.1] }}
@@ -85,12 +86,12 @@ const Code2CrackSection = () => {
       <div className="section-container relative z-10" ref={containerRef}>
         {/* Header */}
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center mb-20">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <motion.div 
+            <motion.div
               className="section-badge mb-8 inline-flex"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -108,14 +109,14 @@ const Code2CrackSection = () => {
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed mb-10">
-              A comprehensive EdTech platform delivering <span className="text-foreground font-medium">industry-aligned training</span>, 
-              secure assessments, and personalized AI-driven learning at scale. 
+              A comprehensive EdTech platform delivering <span className="text-foreground font-medium">industry-aligned training</span>,
+              secure assessments, and personalized AI-driven learning at scale.
               Transforming how institutions approach technical education.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="btn-gradient text-white font-bold rounded-full px-8 py-6 text-base group"
                 onClick={() => window.open('https://code2crack.com', '_blank')}
               >
@@ -123,8 +124,8 @@ const Code2CrackSection = () => {
                 Visit Platform
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 variant="outline"
                 className="rounded-full px-8 py-6 text-base font-semibold border-2 hover:bg-accent/5 group"
                 onClick={() => window.open('https://code2crack.com/features', '_blank')}
@@ -136,14 +137,14 @@ const Code2CrackSection = () => {
           </motion.div>
 
           {/* Stats */}
-          <motion.div 
+          <motion.div
             className="grid grid-cols-2 gap-5"
             initial={{ opacity: 0, x: 60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             {platformStats.map((stat, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 whileHover={{ scale: 1.03, y: -6 }}
                 transition={{ duration: 0.2 }}
@@ -157,6 +158,19 @@ const Code2CrackSection = () => {
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* Desktop Dashboard Mockup (Absolute positioned or Grid) */}
+          <motion.div
+            className="hidden lg:block absolute top-20 right-0 w-[50%] h-full z-[-1] opacity-40 pointer-events-none"
+            initial={{ opacity: 0, x: 100 }}
+            animate={isInView ? { opacity: 0.4, x: 0 } : {}}
+            transition={{ duration: 1 }}
+          >
+            <div className="relative w-full h-[600px]">
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/20 to-background z-10" />
+              <img src={dashboardMockup} alt="Dashboard Preview" className="w-full h-full object-cover object-left-top mask-image-gradient" />
+            </div>
           </motion.div>
         </div>
 
@@ -174,7 +188,7 @@ const Code2CrackSection = () => {
               <div className="card-elevated p-7 h-full relative overflow-hidden">
                 {/* Top Accent Line */}
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                
+
                 <div className="flex items-start gap-5">
                   <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300`}>
                     <feature.icon className="w-7 h-7 text-white" />
@@ -192,8 +206,8 @@ const Code2CrackSection = () => {
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 };
 

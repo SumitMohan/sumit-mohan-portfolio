@@ -48,13 +48,13 @@ const ExperienceSection = () => {
     <section id="experience" className="section-padding relative" style={{ background: 'var(--gradient-subtle)' }}>
       <div className="section-container" ref={containerRef}>
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="text-center max-w-3xl mx-auto mb-20"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <motion.span 
+          <motion.span
             className="section-badge mb-8 inline-flex"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -63,8 +63,8 @@ const ExperienceSection = () => {
             Career Journey
           </motion.span>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 leading-[1.05]">
-            Professional
-            <span className="block text-shimmer mt-2">Experience</span>
+            Impact &
+            <span className="block text-shimmer mt-2">Professional Journey</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground">
             A progressive journey through technical education and academic leadership.
@@ -75,7 +75,7 @@ const ExperienceSection = () => {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Vertical Line */}
-            <motion.div 
+            <motion.div
               className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-[3px] md:-translate-x-[1.5px] rounded-full"
               style={{ background: 'var(--gradient-accent)' }}
               initial={{ scaleY: 0 }}
@@ -89,36 +89,34 @@ const ExperienceSection = () => {
                 initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.2 + index * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative flex items-start gap-8 mb-12 last:mb-0 ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
+                className={`relative flex items-start gap-8 mb-12 last:mb-0 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}
               >
                 {/* Timeline Dot */}
-                <motion.div 
+                <motion.div
                   className="absolute left-6 md:left-1/2 w-4 h-4 -translate-x-1/2 rounded-full border-4 border-background z-10"
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.15 }}
-                  style={{ 
+                  style={{
                     background: exp.current ? 'var(--gradient-accent)' : 'hsl(var(--primary))',
                     boxShadow: exp.current ? '0 0 25px hsl(192 100% 50% / 0.5)' : undefined
                   }}
                 />
 
                 {/* Content Card */}
-                <div className={`ml-16 md:ml-0 md:w-[calc(50%-3rem)] ${
-                  index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
-                }`}>
-                  <motion.div 
-                    className="card-elevated p-7 group hover:shadow-2xl transition-all duration-300 relative overflow-hidden"
+                <div className={`ml-16 md:ml-0 md:w-[calc(50%-3rem)] ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
+                  }`}>
+                  <motion.div
+                    className="card-elevated p-7 group hover:shadow-2xl transition-all duration-300 relative overflow-hidden border border-white/5 bg-white/5 backdrop-blur-sm"
                     whileHover={{ y: -6 }}
                   >
                     {/* Top gradient accent on hover */}
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    
+
                     {exp.current && (
                       <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-xs font-bold mb-4 tracking-wide">
-                        <motion.span 
+                        <motion.span
                           className="w-2 h-2 rounded-full bg-accent"
                           animate={{ opacity: [1, 0.4, 1], scale: [1, 1.2, 1] }}
                           transition={{ duration: 1.5, repeat: Infinity }}

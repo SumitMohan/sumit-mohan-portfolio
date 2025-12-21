@@ -47,13 +47,13 @@ const AchievementsSection = () => {
     <section id="achievements" className="section-padding bg-background overflow-hidden relative">
       {/* Decorative Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div 
+        <motion.div
           className="absolute top-40 right-20 w-[400px] h-[400px] rounded-full opacity-30"
           style={{ background: 'radial-gradient(circle, hsl(192 100% 50% / 0.08) 0%, transparent 70%)' }}
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 10, repeat: Infinity }}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-20 left-20 w-[300px] h-[300px] rounded-full opacity-20"
           style={{ background: 'radial-gradient(circle, hsl(280 100% 60% / 0.08) 0%, transparent 70%)' }}
           animate={{ scale: [1.1, 1, 1.1] }}
@@ -63,13 +63,13 @@ const AchievementsSection = () => {
 
       <div className="section-container relative z-10" ref={containerRef}>
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="text-center max-w-3xl mx-auto mb-20"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <motion.span 
+          <motion.span
             className="section-badge mb-8 inline-flex"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -77,7 +77,7 @@ const AchievementsSection = () => {
             <Award className="w-3.5 h-3.5" />
             Recognition
           </motion.span>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 leading-[1.05]">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 leading-tight">
             Achievements &
             <span className="block text-shimmer mt-2">Credentials</span>
           </h2>
@@ -94,15 +94,15 @@ const AchievementsSection = () => {
               whileHover={{ y: -10, scale: 1.02 }}
               className="group relative"
             >
-              <div className="card-elevated p-8 h-full text-center relative overflow-hidden">
+              <div className="card-elevated p-8 h-full text-center relative overflow-hidden border border-white/5 bg-white/5 backdrop-blur-sm">
                 {/* Top gradient line */}
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                
+
                 {/* Gradient Background on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-[0.08] transition-opacity duration-500`} />
-                
+
                 <div className="relative z-10">
-                  <motion.div 
+                  <motion.div
                     className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-5 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}
                     whileHover={{ rotate: [0, -10, 10, 0] }}
                   >
@@ -124,7 +124,7 @@ const AchievementsSection = () => {
         </div>
 
         {/* Education */}
-        <motion.div 
+        <motion.div
           className="max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -146,11 +146,11 @@ const AchievementsSection = () => {
                 whileHover={{ x: 10 }}
                 className="group"
               >
-                <div className="flex items-center gap-5 p-6 rounded-2xl bg-card border border-border/50 hover:border-accent/30 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+                <div className="flex items-center gap-5 p-6 rounded-2xl bg-card border border-white/5 bg-white/5 backdrop-blur-sm hover:border-accent/30 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
                   {/* Left gradient accent */}
                   <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b ${qual.gradient} opacity-0 group-hover:opacity-100 transition-opacity`} />
-                  
-                  <motion.div 
+
+                  <motion.div
                     className={`w-14 h-14 rounded-xl bg-gradient-to-br ${qual.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.5 }}

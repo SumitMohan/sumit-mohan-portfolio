@@ -41,11 +41,11 @@ const Footer = () => {
 
       {/* Noise overlay */}
       <div className="absolute inset-0 noise-overlay pointer-events-none" />
-      
+
       <div className="section-container relative z-10 py-20">
         <div className="grid md:grid-cols-3 gap-12 lg:gap-16 mb-16">
           {/* Brand */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -54,11 +54,11 @@ const Footer = () => {
             <span className="font-heading text-3xl font-black text-shimmer block mb-4">
               Sumit Mohan
             </span>
-            <p className="text-white/50 text-base mb-6 max-w-xs leading-relaxed">
+            <p className="text-white/70 text-base mb-6 max-w-xs leading-relaxed">
               Head of Technical Training & Academic Leader. Building industry-aligned training ecosystems.
             </p>
-            <a 
-              href="tel:+919990562197" 
+            <a
+              href="tel:+919990562197"
               className="inline-flex items-center gap-2 text-white/40 hover:text-white/70 transition-colors text-sm"
             >
               <Phone className="w-4 h-4" />
@@ -67,7 +67,7 @@ const Footer = () => {
           </motion.div>
 
           {/* Quick Links */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -79,9 +79,9 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
+                  <a
                     href={link.href}
-                    className="text-white/50 hover:text-white text-base transition-colors inline-flex items-center gap-2 group"
+                    className="text-white/70 hover:text-white text-base transition-colors inline-flex items-center gap-2 group"
                   >
                     {link.label}
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -92,7 +92,7 @@ const Footer = () => {
           </motion.div>
 
           {/* Social Links */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -123,7 +123,7 @@ const Footer = () => {
         {/* Divider */}
         <div className="border-t border-white/10 pt-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <motion.p 
+            <motion.p
               className="text-white/30 text-sm"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -132,14 +132,14 @@ const Footer = () => {
             >
               © {currentYear} Sumit Mohan. All rights reserved.
             </motion.p>
-            <motion.p 
+            <motion.p
               className="text-white/30 text-sm flex items-center gap-2"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              Crafted with 
+              Crafted with
               <motion.span
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1, repeat: Infinity }}

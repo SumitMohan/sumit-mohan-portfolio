@@ -1,10 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { 
-  BookOpen, 
-  Users, 
-  FileCheck, 
-  Briefcase, 
+import {
+  BookOpen,
+  Users,
+  FileCheck,
+  Briefcase,
   GraduationCap,
   Building2,
   Sparkles
@@ -57,13 +57,13 @@ const AcademicLeadershipSection = () => {
     <section id="leadership" className="section-padding bg-background overflow-hidden relative">
       {/* Decorative Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div 
+        <motion.div
           className="absolute top-20 right-20 w-[400px] h-[400px] rounded-full opacity-25"
           style={{ background: 'radial-gradient(circle, hsl(192 100% 50% / 0.08) 0%, transparent 70%)' }}
           animate={{ scale: [1, 1.15, 1], x: [0, 20, 0] }}
           transition={{ duration: 12, repeat: Infinity }}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-40 left-10 w-[350px] h-[350px] rounded-full opacity-20"
           style={{ background: 'radial-gradient(circle, hsl(280 100% 60% / 0.08) 0%, transparent 70%)' }}
           animate={{ scale: [1.1, 1, 1.1], y: [0, -20, 0] }}
@@ -73,13 +73,13 @@ const AcademicLeadershipSection = () => {
 
       <div className="section-container relative z-10" ref={containerRef}>
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="text-center max-w-3xl mx-auto mb-20"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <motion.span 
+          <motion.span
             className="section-badge mb-8 inline-flex"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -107,15 +107,15 @@ const AcademicLeadershipSection = () => {
               whileHover={{ y: -10, transition: { duration: 0.2 } }}
               className="group"
             >
-              <div className="h-full card-elevated p-8 relative overflow-hidden">
+              <div className="h-full card-elevated p-8 relative overflow-hidden border border-white/5 bg-white/5 backdrop-blur-sm">
                 {/* Top gradient line */}
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                
+
                 {/* Background gradient on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-[0.05] transition-opacity duration-500`} />
-                
+
                 <div className="relative z-10">
-                  <motion.div 
+                  <motion.div
                     className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}
                     whileHover={{ rotate: [0, -5, 5, 0] }}
                     transition={{ duration: 0.4 }}
