@@ -46,7 +46,7 @@ const PublicationCategory = ({
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay }}
-      className="card-elevated overflow-hidden group"
+      className="card-elevated overflow-hidden group hover-lift"
     >
       {/* Top gradient line */}
       <div className={`h-1 bg-gradient-to-r ${gradient} opacity-60`} />
@@ -154,7 +154,7 @@ const PublicationsSection = () => {
             Research
           </motion.span>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 leading-tight">
-            Publications & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Scholarly Impact</span>
+            Publications <span className="font-serif text-accent italic px-1">&</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Scholarly Impact</span>
           </h2>
 
           <Button
@@ -213,7 +213,7 @@ const PublicationsSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <div className="sticky top-24">
-              <div className="card-elevated p-3 rounded-2xl bg-white/5 border border-white/10 overflow-hidden relative group">
+              <div className="card-elevated p-3 rounded-2xl bg-card border border-border/50 overflow-hidden relative group shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                 <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
@@ -223,8 +223,8 @@ const PublicationsSection = () => {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 
-                  {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
+                  {/* Overlay Gradient - Darkened for visibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90" />
 
                   {/* Content Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -235,7 +235,7 @@ const PublicationsSection = () => {
                     <h3 className="text-xl font-bold text-white mb-2 text-shadow-sm">
                       Driving Thought Leadership
                     </h3>
-                    <p className="text-white/80 text-sm leading-relaxed">
+                    <p className="text-white/90 text-sm leading-relaxed">
                       Delivering talks on AI in Education, Future of Work, and Scalable Learning Ecosystems at premier tech summits.
                     </p>
                   </div>

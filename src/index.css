@@ -100,6 +100,12 @@
     --input: 222 47% 14%;
     --ring: 192 100% 50%;
 
+    /* Dark Mode Gradients */
+    --gradient-subtle: linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(222 47% 10%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(222 47% 8%) 0%, hsl(222 47% 12%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 4%) 0%, hsl(222 47% 10%) 50%, hsl(240 40% 14%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(192 100% 50% / 0.15) 0%, transparent 70%);
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -158,6 +164,36 @@
     animation: shimmer 3s linear infinite;
   }
 
+  /* Global Interactive Utilities */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-2 shadow-xl;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-glow:hover {
+    @apply scale-105;
+    box-shadow: 0 0 25px hsl(var(--primary) / 0.4);
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-500 ease-out overflow-hidden;
+  }
+
+  .hover-scale img {
+    @apply transition-transform duration-500 ease-out;
+  }
+
+  .hover-scale:hover img {
+    @apply scale-110;
+  }
+
   .gradient-text-static {
     @apply bg-clip-text text-transparent;
     background-image: var(--gradient-accent);
@@ -177,9 +213,27 @@
   }
 
   /* Cards */
+  /* Cards */
   .card-elevated {
-    @apply bg-card rounded-2xl border border-border/50 backdrop-blur-sm;
-    box-shadow: var(--shadow-card);
+    @apply relative rounded-2xl transition-all duration-300;
+    /* Light Mode: Clean White Card */
+    @apply bg-white border border-border/60;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    /* Dark Mode: Deep Glassy Card */
+    @apply dark:bg-card/40 dark:backdrop-blur-md dark:border-white/5 dark:shadow-none;
+  }
+
+  .card-elevated:hover {
+    @apply -translate-y-1;
+    /* Light Mode Hover */
+    @apply border-border/80;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    /* Dark Mode Hover */
+    @apply dark:bg-card/60 dark:border-white/10;
+  }
+
+  .dark .card-elevated:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
 
   .card-hover {

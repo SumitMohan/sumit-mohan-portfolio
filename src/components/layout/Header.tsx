@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -32,8 +33,8 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border/50"
-        : "bg-transparent"
+        ? "bg-background/80 backdrop-blur-md shadow-sm border-b border-white/5"
+        : "bg-transparent py-4"
         }`}
     >
       <div className="section-container">
@@ -41,14 +42,23 @@ const Header = () => {
           {/* Logo */}
           <a
             href="#"
-            className={`text-xl font-bold transition-colors ${isScrolled ? "text-foreground" : "text-slate-900"
-              }`}
+            className="text-xl font-bold font-heading text-foreground tracking-tight hover:opacity-80 transition-opacity"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            SM
+            <div className="flex flex-col leading-none">
+              <span className="text-xl md:text-2xl font-black font-heading text-shimmer tracking-tight">
+                Sumit Mohan
+              </span>
+              <div className="flex justify-between items-center w-full mt-0.5 px-0.5">
+                <span className="text-[0.55rem] md:text-[0.65rem] font-semibold text-muted-foreground/80 tracking-tight">Bridging</span>
+                <span className="text-[0.55rem] md:text-[0.65rem] font-semibold text-muted-foreground/80 tracking-tight">Academia</span>
+                <span className="text-[0.55rem] md:text-[0.65rem] font-semibold text-muted-foreground/80 tracking-tight">&</span>
+                <span className="text-[0.55rem] md:text-[0.65rem] font-semibold text-muted-foreground/80 tracking-tight">Industry</span>
+              </div>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
@@ -57,9 +67,9 @@ const Header = () => {
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${isScrolled
-                  ? "text-muted-foreground hover:text-foreground hover:bg-muted"
-                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:scale-105 ${isScrolled
+                  ? "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                  : "text-foreground/80 hover:text-foreground hover:bg-white/5"
                   }`}
               >
                 {link.label}
@@ -68,10 +78,11 @@ const Header = () => {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             <Button
               size="sm"
-              className={isScrolled ? "" : "bg-[#0ea5e9] hover:bg-[#0284c7] text-white"}
+              className="btn-gradient text-white font-semibold shadow-lg hover-glow transition-all duration-300"
               onClick={() => window.open("https://code2crack.com", "_blank")}
             >
               Code2Crack
@@ -80,10 +91,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden p-2 rounded-lg transition-colors ${isScrolled
-              ? "text-foreground hover:bg-muted"
-              : "text-slate-900 hover:bg-slate-100"
-              }`}
+            className="md:hidden p-2 text-foreground hover:bg-white/5 rounded-lg transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -93,26 +101,31 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg">
-            <nav className="flex flex-col p-4">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+            <nav className="flex flex-col p-4 space-y-2">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className="px-4 py-3 text-left text-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors"
+                  className="px-4 py-3 text-left text-foreground hover:text-accent hover:bg-white/5 rounded-lg transition-colors"
                 >
                   {link.label}
                 </button>
               ))}
-              <Button
-                className="mt-4"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  window.open("https://code2crack.com", "_blank");
-                }}
-              >
-                Explore Code2Crack
-              </Button>
+              <div className="pt-2 flex flex-col gap-4">
+                <Button
+                  className="w-full btn-gradient"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    window.open("https://code2crack.com", "_blank");
+                  }}
+                >
+                  Explore Code2Crack
+                </Button>
+                <div className="flex justify-center">
+                  <ThemeToggle />
+                </div>
+              </div>
             </nav>
           </div>
         )}

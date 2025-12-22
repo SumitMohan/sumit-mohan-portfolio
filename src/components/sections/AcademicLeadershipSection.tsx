@@ -88,8 +88,7 @@ const AcademicLeadershipSection = () => {
             Leadership
           </motion.span>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 leading-[1.05]">
-            Academic &
-            <span className="block text-shimmer mt-2">Administrative Leadership</span>
+            Academic <span className="font-serif text-accent italic px-1">&</span> <span className="text-shimmer">Administrative Leadership</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground">
             Strategic oversight of academic programs, faculty development, and institutional growth.
@@ -107,7 +106,7 @@ const AcademicLeadershipSection = () => {
               whileHover={{ y: -10, transition: { duration: 0.2 } }}
               className="group"
             >
-              <div className="h-full card-elevated p-8 relative overflow-hidden border border-white/5 bg-white/5 backdrop-blur-sm">
+              <div className="h-full card-elevated p-8 relative overflow-hidden">
                 {/* Top gradient line */}
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
 
@@ -125,7 +124,7 @@ const AcademicLeadershipSection = () => {
                   <h3 className="font-heading font-bold text-xl text-foreground mb-3 group-hover:text-primary transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground/90 dark:text-muted-foreground leading-relaxed text-justify">
                     {item.description}
                   </p>
                 </div>

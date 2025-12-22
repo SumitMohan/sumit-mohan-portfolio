@@ -108,7 +108,7 @@ const Code2CrackSection = () => {
               AI-Powered Training & Assessment Platform
             </p>
 
-            <p className="text-lg text-muted-foreground leading-relaxed mb-10">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-10 text-justify">
               A comprehensive EdTech platform delivering <span className="text-foreground font-medium">industry-aligned training</span>,
               secure assessments, and personalized AI-driven learning at scale.
               Transforming how institutions approach technical education.
@@ -117,7 +117,7 @@ const Code2CrackSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                className="btn-gradient text-white font-bold rounded-full px-8 py-6 text-base group"
+                className="btn-gradient text-white font-bold rounded-full px-8 py-6 text-base group hover-glow"
                 onClick={() => window.open('https://code2crack.com', '_blank')}
               >
                 <ExternalLink className="mr-2 h-5 w-5" />
@@ -146,9 +146,7 @@ const Code2CrackSection = () => {
             {platformStats.map((stat, index) => (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.03, y: -6 }}
-                transition={{ duration: 0.2 }}
-                className="card-elevated card-hover p-8 text-center group"
+                className="card-elevated card-hover p-8 text-center group hover-lift"
               >
                 <div className={`font-heading text-4xl md:text-5xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
                   {stat.value}
@@ -182,8 +180,7 @@ const Code2CrackSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 + index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              className="group"
+              className="group hover-lift"
             >
               <div className="card-elevated p-7 h-full relative overflow-hidden">
                 {/* Top Accent Line */}
@@ -197,7 +194,7 @@ const Code2CrackSection = () => {
                     <h3 className="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground/90 dark:text-muted-foreground leading-relaxed text-justify">
                       {feature.description}
                     </p>
                   </div>

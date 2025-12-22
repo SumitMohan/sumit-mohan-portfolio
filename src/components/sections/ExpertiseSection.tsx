@@ -104,10 +104,9 @@ const ExpertiseSection = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="group relative"
+              className="group relative hover-lift"
             >
-              <div className="card-elevated p-8 h-full relative overflow-hidden border border-white/5 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors">
+              <div className="card-elevated p-8 h-full relative overflow-hidden">
                 {/* Gradient Background on Hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
@@ -128,7 +127,7 @@ const ExpertiseSection = () => {
                     {item.title}
                   </h3>
 
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground/90 dark:text-muted-foreground leading-relaxed text-justify">
                     {item.description}
                   </p>
                 </div>

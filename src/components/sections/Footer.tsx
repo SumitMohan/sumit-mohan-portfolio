@@ -22,7 +22,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative overflow-hidden" style={{ background: 'var(--gradient-hero)' }}>
+    <footer className="relative overflow-hidden border-t border-border bg-background">
       {/* Animated background orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -54,13 +54,13 @@ const Footer = () => {
             <span className="font-heading text-3xl font-black text-shimmer block mb-4">
               Sumit Mohan
             </span>
-            <p className="text-white/70 text-base mb-6 max-w-xs leading-relaxed">
+            <p className="text-muted-foreground text-base mb-6 max-w-xs leading-relaxed text-justify">
               Head of Technical Training & Academic Leader. Building industry-aligned training ecosystems.
             </p>
-            <ul className="space-y-3 text-white/70 text-sm">
+            <ul className="space-y-3 text-muted-foreground text-sm">
               <li>
-                <a href="mailto:sumitmohan91@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors group">
-                  <Mail className="h-4 w-4 group-hover:text-primary transition-colors" />
+                <a href="mailto:sumitmohan91@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors group">
+                  <Mail className="h-4 w-4 group-hover:text-primary transition-colors text-muted-foreground" />
                   sumitmohan91@gmail.com
                 </a>
               </li>
@@ -69,9 +69,9 @@ const Footer = () => {
                   href="https://wa.me/919990562197"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-white transition-colors group"
+                  className="flex items-center gap-2 hover:text-primary transition-colors group"
                 >
-                  <MessageCircle className="h-4 w-4 group-hover:text-primary transition-colors" />
+                  <MessageCircle className="h-4 w-4 group-hover:text-primary transition-colors text-muted-foreground" />
                   +91-99905-62197
                 </a>
               </li>
@@ -105,7 +105,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-heading text-sm font-bold text-white/70 uppercase tracking-[0.2em] mb-6">
+            <h4 className="font-heading text-sm font-bold text-muted-foreground uppercase tracking-[0.2em] mb-6">
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -113,10 +113,10 @@ const Footer = () => {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-white/70 hover:text-white text-base transition-colors inline-flex items-center gap-2 group"
+                    className="text-muted-foreground hover:text-primary text-base transition-colors inline-flex items-center gap-2 group"
                   >
                     {link.label}
-                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all text-primary" />
                   </a>
                 </li>
               ))}
@@ -130,7 +130,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-heading text-sm font-bold text-white/70 uppercase tracking-[0.2em] mb-6">
+            <h4 className="font-heading text-sm font-bold text-muted-foreground uppercase tracking-[0.2em] mb-6">
               Connect
             </h4>
             <div className="flex flex-wrap gap-3">
@@ -140,7 +140,7 @@ const Footer = () => {
                   href={link.href}
                   target={link.href.startsWith('mailto') || link.href.startsWith('tel') ? undefined : '_blank'}
                   rel={link.href.startsWith('mailto') || link.href.startsWith('tel') ? undefined : 'noopener noreferrer'}
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${link.gradient} flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300`}
+                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${link.gradient} flex items-center justify-center text-white shadow-lg hover-glow transition-all duration-300`}
                   aria-label={link.label}
                   whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.95 }}
@@ -153,10 +153,10 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/10 pt-10">
+        <div className="border-t border-border pt-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <motion.p
-              className="text-white/30 text-sm"
+              className="text-muted-foreground/60 text-sm"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -165,7 +165,7 @@ const Footer = () => {
               © {currentYear} Sumit Mohan. All rights reserved.
             </motion.p>
             <motion.p
-              className="text-white/30 text-sm flex items-center gap-2"
+              className="text-muted-foreground/60 text-sm flex items-center gap-2"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}

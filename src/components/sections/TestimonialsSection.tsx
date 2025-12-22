@@ -66,7 +66,7 @@ const TestimonialsSection = () => {
                             className="card-elevated p-8 relative group"
                         >
                             <Quote className="w-8 h-8 text-accent/20 mb-6 group-hover:text-accent/40 transition-colors" />
-                            <p className="text-muted-foreground text-lg mb-8 leading-relaxed italic">
+                            <p className="text-muted-foreground text-lg mb-8 leading-relaxed italic text-justify">
                                 "{item.quote}"
                             </p>
                             <div className="flex items-center gap-4 mt-auto">

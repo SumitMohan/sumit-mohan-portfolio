@@ -63,8 +63,7 @@ const ExperienceSection = () => {
             Career Journey
           </motion.span>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 leading-[1.05]">
-            Impact &
-            <span className="block text-shimmer mt-2">Professional Journey</span>
+            Impact <span className="font-serif text-accent italic px-1">&</span> <span className="text-shimmer">Professional Journey</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground">
             A progressive journey through technical education and academic leadership.
@@ -108,8 +107,7 @@ const ExperienceSection = () => {
                 <div className={`ml-16 md:ml-0 md:w-[calc(50%-3rem)] ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
                   }`}>
                   <motion.div
-                    className="card-elevated p-7 group hover:shadow-2xl transition-all duration-300 relative overflow-hidden border border-white/5 bg-white/5 backdrop-blur-sm"
-                    whileHover={{ y: -6 }}
+                    className="card-elevated p-7 group h-full overflow-hidden hover-lift"
                   >
                     {/* Top gradient accent on hover */}
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -137,7 +135,7 @@ const ExperienceSection = () => {
                         {exp.period}
                       </span>
                     </div>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground/90 dark:text-muted-foreground leading-relaxed text-justify">
                       {exp.description}
                     </p>
                   </motion.div>

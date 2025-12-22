@@ -78,8 +78,7 @@ const AchievementsSection = () => {
             Recognition
           </motion.span>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 leading-tight">
-            Achievements &
-            <span className="block text-shimmer mt-2">Credentials</span>
+            Achievements <span className="font-serif text-accent italic px-1">&</span> <span className="text-shimmer">Credentials</span>
           </h2>
         </motion.div>
 
@@ -94,7 +93,7 @@ const AchievementsSection = () => {
               whileHover={{ y: -10, scale: 1.02 }}
               className="group relative"
             >
-              <div className="card-elevated p-8 h-full text-center relative overflow-hidden border border-white/5 bg-white/5 backdrop-blur-sm">
+              <div className="card-elevated p-8 h-full text-center relative overflow-hidden border border-border/40 bg-card/80 dark:bg-white/5 backdrop-blur-sm">
                 {/* Top gradient line */}
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
 
@@ -146,7 +145,7 @@ const AchievementsSection = () => {
                 whileHover={{ x: 10 }}
                 className="group"
               >
-                <div className="flex items-center gap-5 p-6 rounded-2xl bg-card border border-white/5 bg-white/5 backdrop-blur-sm hover:border-accent/30 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+                <div className="flex items-center gap-5 p-6 rounded-2xl bg-card border border-border/40 hover:border-accent/30 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
                   {/* Left gradient accent */}
                   <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b ${qual.gradient} opacity-0 group-hover:opacity-100 transition-opacity`} />
 

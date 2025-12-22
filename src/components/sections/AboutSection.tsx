@@ -83,17 +83,17 @@ const AboutSection = () => {
               <span className="block text-shimmer mt-2">Technical Education</span>
             </h2>
 
-            <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
+            <div className="space-y-6 text-muted-foreground text-lg leading-relaxed text-justify">
               <p>
                 As an <span className="text-foreground font-semibold">Academic Leader & Technologist</span>, I believe that the gap between
-                university curriculum and industry expectations is not just a syllabus issue—it's a <span className="text-foreground font-semibold">pedagogical challenge</span>.
+                university curriculum and industry expectations is not just a syllabus issue, it's a <span className="text-foreground font-semibold">pedagogical challenge</span>.
               </p>
               <p>
                 My work focuses on building <span className="text-foreground font-semibold">scalable learning ecosystems</span> that integrate
                 AI-driven personalized learning with rigorous, outcome-based assessment models.
               </p>
               <p>
-                Creator of <span className="gradient-text-static font-bold">Code2Crack</span> — an AI-powered EdTech platform that has transformed
+                Creator of <span className="gradient-text-static font-bold">Code2Crack</span>, an AI-powered EdTech platform that has transformed
                 technical training for over <span className="text-foreground font-bold">10,000 students</span>, proving that high-quality education can be democratized at scale.
               </p>
             </div>
@@ -171,7 +171,7 @@ const AboutSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="card-elevated p-0 relative overflow-hidden mt-8 group"
+              className="card-elevated p-0 relative overflow-hidden mt-8 group hover-lift"
             >
               {/* Background Image with Overlay */}
               <div className="absolute inset-0">

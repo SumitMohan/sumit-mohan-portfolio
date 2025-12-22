@@ -94,8 +94,7 @@ const CTASection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Let's Build Impactful
-            <span className="block text-shimmer mt-2">Training Ecosystems</span>
+            Let's Build Impactful <span className="text-shimmer">Training Ecosystems</span>
           </motion.h2>
 
           <motion.p
@@ -118,7 +117,7 @@ const CTASection = () => {
             <div className="flex flex-col md:flex-row gap-4 justify-center mb-16">
               <Button
                 size="xl"
-                className="bg-white text-primary hover:bg-white/95 shadow-2xl shadow-white/20 rounded-full px-8 py-4 text-base font-bold group hover:scale-[1.02] transition-all duration-300"
+                className="bg-white text-primary hover:bg-white/95 shadow-2xl shadow-white/20 rounded-full px-8 py-4 text-base font-bold group hover-glow"
                 onClick={() => window.open('/Resume.pdf', '_blank')}
               >
                 <FileText className="mr-2 h-5 w-5" />
@@ -141,7 +140,7 @@ const CTASection = () => {
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=sumitmohan91@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center whitespace-nowrap text-base font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-white/20 bg-transparent shadow-sm hover:bg-white/10 text-white rounded-full px-8 py-4 backdrop-blur-sm h-14 md:h-[3.5rem]"
+                className="inline-flex items-center justify-center whitespace-nowrap text-base font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-white/20 bg-transparent shadow-sm hover:bg-white/10 text-white rounded-full px-8 py-4 backdrop-blur-sm h-14 md:h-[3.5rem] hover-glow"
               >
                 <Mail className="mr-2 h-5 w-5" />
                 Get in Touch
@@ -203,7 +202,7 @@ const CTASection = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/[0.08] backdrop-blur-sm border border-white/[0.12] text-white/80 hover:text-white hover:bg-white/15 hover:border-white/20 transition-all duration-300 text-sm font-semibold group"
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/[0.08] backdrop-blur-sm border border-white/[0.12] text-white/80 hover:text-white hover:bg-white/15 hover:border-white/20 transition-all duration-300 text-sm font-semibold group hover-glow"
               >
                 <span className={`w-8 h-8 rounded-lg bg-gradient-to-br ${link.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
                   <link.icon className="w-4 h-4 text-white" />
