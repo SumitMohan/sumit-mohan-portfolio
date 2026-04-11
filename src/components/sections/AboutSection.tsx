@@ -1,10 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Award, Users, BookOpen, TrendingUp, ArrowUpRight, Sparkles } from "lucide-react";
+import { Award, Users, BookOpen, TrendingUp, ArrowUpRight, Sparkles, Brain, Cpu, Rocket } from "lucide-react";
 import sumitPhoto from "@/assets/sumit-photo-new.jpg";
 import teachingImg from "@/assets/teaching.jpg";
-
-
 
 const AnimatedCounter = ({ value, suffix, color }: { value: number; suffix: string; color: string }) => {
   const [count, setCount] = useState(0);
@@ -79,22 +77,24 @@ const AboutSection = () => {
             </motion.span>
 
             <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-8 leading-tight">
-              Driving Excellence in
-              <span className="block text-shimmer mt-2">Technical Education</span>
+              Engineering Intelligent
+              <span className="block text-shimmer mt-2">AI Solutions</span>
             </h2>
 
             <div className="space-y-6 text-muted-foreground text-lg leading-relaxed text-justify">
               <p>
-                As an <span className="text-foreground font-semibold">Academic Leader & Technologist</span>, I believe that the gap between
-                university curriculum and industry expectations is not just a syllabus issue, it's a <span className="text-foreground font-semibold">pedagogical challenge</span>.
+                <span className="text-foreground font-semibold">GenAI & Data Science Engineer</span> with 7+ years of experience
+                building scalable AI systems, machine learning models, and intelligent applications.
               </p>
               <p>
-                My work focuses on building <span className="text-foreground font-semibold">scalable learning ecosystems</span> that integrate
-                AI-driven personalized learning with rigorous, outcome-based assessment models.
+                Deep expertise in <span className="text-foreground font-semibold">LLMs, Retrieval-Augmented Generation (RAG)</span>, and
+                end-to-end AI system design — with hands-on experience in FastAPI, vector databases, and cloud deployment.
               </p>
               <p>
-                Creator of <span className="gradient-text-static font-bold">Code2Crack</span>, an AI-powered EdTech platform that has transformed
-                technical training for over <span className="text-foreground font-bold">10,000 students</span>, proving that high-quality education can be democratized at scale.
+                Creator of <span className="gradient-text-static font-bold">Astromology.com</span>, a GenAI-powered platform for
+                kundli analysis and astrology insights, and <span className="gradient-text-static font-bold">Code2Crack</span>, an
+                AI-driven EdTech system for adaptive learning and analytics. Strong focus on building{" "}
+                <span className="text-foreground font-bold">production-ready AI solutions</span> from research to deployment.
               </p>
             </div>
 
@@ -105,11 +105,11 @@ const AboutSection = () => {
               className="mt-10"
             >
               <a
-                href="#experience"
+                href="#projects"
                 className="inline-flex items-center gap-3 text-accent font-bold text-lg hover:gap-4 transition-all group"
               >
                 <span className="relative">
-                  View My Journey
+                  View My Projects
                   <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
                 </span>
                 <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -146,7 +146,7 @@ const AboutSection = () => {
                 <div className="relative bg-background p-1 rounded-[2rem]">
                   <img
                     src={sumitPhoto}
-                    alt="Sumit Mohan - Head of Technical Training"
+                    alt="Sumit Mohan - GenAI Engineer & Data Scientist"
                     className="relative w-full max-w-[350px] md:max-w-[400px] h-auto object-cover rounded-[1.75rem] group-hover:scale-[1.02] transition-transform duration-700 shadow-2xl"
                   />
                 </div>
@@ -159,7 +159,7 @@ const AboutSection = () => {
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-sm font-semibold text-foreground">Available for Consulting</span>
+                    <span className="text-sm font-semibold text-foreground">Open to AI/GenAI Roles</span>
                   </div>
                 </motion.div>
               </div>
@@ -177,7 +177,7 @@ const AboutSection = () => {
               <div className="absolute inset-0">
                 <img
                   src={teachingImg}
-                  alt="Mentoring Students"
+                  alt="Building AI Systems"
                   className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background/95" />
@@ -186,12 +186,12 @@ const AboutSection = () => {
               <div className="relative z-10 p-8">
                 <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-accent to-purple-500" />
                 <h3 className="font-heading text-2xl font-bold text-foreground mb-4 flex items-center gap-3">
-                  <TrendingUp className="w-6 h-6 text-accent" />
+                  <Rocket className="w-6 h-6 text-accent" />
                   My Mission
                 </h3>
                 <p className="text-muted-foreground text-lg italic relative">
                   <span className="text-5xl text-accent/20 absolute -top-4 -left-2 font-serif">"</span>
-                  To empower the next generation of engineers with the cognitive tools and technical adaptability required to thrive in an AI-first world.
+                  To build production-grade AI systems that solve real-world problems — from intelligent platforms like Astromology.com to scalable EdTech solutions that democratize learning at scale.
                   <span className="text-5xl text-accent/20 absolute -bottom-8 right-0 font-serif">"</span>
                 </p>
               </div>

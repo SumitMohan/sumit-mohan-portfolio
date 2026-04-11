@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 
 const partners = [
-    "Chitkara University",
-    "Sharda University",
-    "SDGI Global",
-    "BIET Jhansi",
+    "Astromology.com",
     "Code2Crack",
-    "IEEE Member",
-    "ACM Member"
+    "LangChain",
+    "FastAPI",
+    "PyTorch",
+    "FAISS",
+    "CodeQuotient",
+    "Sharda University",
 ];
 
 const TrustSection = () => {
@@ -15,7 +16,7 @@ const TrustSection = () => {
         <section className="py-10 border-y border-border/50 bg-secondary/30 dark:bg-white/[0.02] overflow-hidden">
             <div className="section-container">
                 <p className="text-center text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-8">
-                    Trusted by Leading Institutions & Organizations
+                    Technologies & Platforms Built With
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-x-12 gap-y-8">

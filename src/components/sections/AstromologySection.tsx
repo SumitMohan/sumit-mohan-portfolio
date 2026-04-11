@@ -3,81 +3,82 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
   ExternalLink,
-  TrendingUp,
-  Shield,
-  BarChart3,
-  Bot,
-  Map,
+  Brain,
+  Search,
+  Database,
+  Server,
   Sparkles,
-  LayoutDashboard,
+  Wand2,
   ArrowRight,
-  Zap
+  Zap,
+  Star,
+  Globe
 } from "lucide-react";
-import dashboardMockup from "@/assets/code2crack-dashboard.png";
+import astromologyDashboard from "@/assets/astromology-dashboard.png";
 
 const features = [
   {
-    icon: Bot,
-    title: "LLM-Based Tutoring",
-    description: "AI-driven tutoring system using retrieval mechanisms for personalized, context-aware learning assistance.",
+    icon: Brain,
+    title: "RAG Pipeline",
+    description: "Retrieval-Augmented Generation for personalized astrology insights and analysis using contextual retrieval.",
     gradient: "from-purple-500 to-pink-600"
   },
   {
-    icon: TrendingUp,
-    title: "Analytics Pipelines",
-    description: "Student performance tracking with deep analytics for progress monitoring and learning optimization.",
+    icon: Database,
+    title: "Vector Database",
+    description: "Semantic search and contextual response generation powered by vector embeddings and similarity search.",
     gradient: "from-cyan-500 to-blue-600"
   },
   {
-    icon: Shield,
-    title: "Secure Proctoring",
-    description: "AI-powered lockdown browser preventing malpractice in high-stakes examinations.",
+    icon: Server,
+    title: "Scalable Backend",
+    description: "Production-grade FastAPI backend with REST APIs designed for real-world deployment and scalable architecture.",
     gradient: "from-emerald-500 to-teal-600"
   },
   {
-    icon: LayoutDashboard,
-    title: "Multi-Tenant LMS",
-    description: "White-label SaaS ecosystem with Admin, Faculty & Student portals for seamless delivery at scale.",
+    icon: Wand2,
+    title: "Prompt Engineering",
+    description: "Advanced embedding strategies and prompt design to improve response accuracy and contextual relevance.",
     gradient: "from-amber-500 to-orange-600"
   },
   {
-    icon: BarChart3,
-    title: "AI-Driven Workflows",
-    description: "Intelligent learning workflows with adaptive content delivery based on student performance patterns.",
+    icon: Star,
+    title: "Kundli Analysis",
+    description: "AI-powered personalized horoscope generation and kundli analysis with deep astrological knowledge base.",
     gradient: "from-rose-500 to-red-600"
   },
   {
-    icon: Map,
-    title: "Scalable Architecture",
-    description: "Robust backend architecture and APIs designed for multi-institution deployment and concurrent users.",
+    icon: Globe,
+    title: "Production Deployed",
+    description: "Live platform serving real users with scalable architecture and API-based system for continuous improvement.",
     gradient: "from-indigo-500 to-violet-600"
   },
 ];
 
 const platformStats = [
-  { label: "Active Users", value: "10K+", gradient: "from-cyan-500 to-blue-500" },
-  { label: "Courses", value: "500+", gradient: "from-purple-500 to-pink-500" },
-  { label: "Assessments", value: "1200+", gradient: "from-amber-500 to-orange-500" },
-  { label: "Modules", value: "50+", gradient: "from-emerald-500 to-teal-500" },
+  { label: "Architecture", value: "RAG", gradient: "from-purple-500 to-pink-500" },
+  { label: "Backend", value: "FastAPI", gradient: "from-cyan-500 to-blue-500" },
+  { label: "Search", value: "Vector DB", gradient: "from-amber-500 to-orange-500" },
+  { label: "Status", value: "Live", gradient: "from-emerald-500 to-teal-500" },
 ];
 
-const Code2CrackSection = () => {
+const AstromologySection = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="code2crack" className="section-padding bg-background relative overflow-hidden">
+    <section id="astromology" className="section-padding relative overflow-hidden" style={{ background: 'var(--gradient-subtle)' }}>
       {/* Background Pattern */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
           className="absolute top-20 left-1/4 w-[500px] h-[500px] rounded-full opacity-40"
-          style={{ background: 'radial-gradient(circle, hsl(192 100% 50% / 0.08) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, hsl(280 100% 60% / 0.08) 0%, transparent 70%)' }}
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 12, repeat: Infinity }}
         />
         <motion.div
           className="absolute bottom-20 right-1/4 w-[600px] h-[600px] rounded-full opacity-30"
-          style={{ background: 'radial-gradient(circle, hsl(280 100% 60% / 0.06) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, hsl(192 100% 50% / 0.06) 0%, transparent 70%)' }}
           animate={{ scale: [1.1, 1, 1.1] }}
           transition={{ duration: 15, repeat: Infinity }}
         />
@@ -101,37 +102,37 @@ const Code2CrackSection = () => {
             </motion.div>
 
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-4 leading-[1.05]">
-              <span className="text-shimmer">Code2Crack</span>
+              <span className="text-shimmer">Astromology.com</span>
             </h2>
 
             <p className="text-lg md:text-xl font-heading font-semibold text-foreground/80 mb-6">
-              AI-Powered EdTech Platform
+              GenAI-Powered Astrology Platform
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed mb-10 text-justify">
-              Developed a comprehensive <span className="text-foreground font-medium">multi-tenant LMS SaaS platform</span> with
-              AI-driven learning workflows. Integrated LLM-based tutoring system using retrieval mechanisms and built
-              <span className="text-foreground font-medium"> analytics pipelines for student performance tracking</span> at scale.
+              Built and deployed a <span className="text-foreground font-medium">production-grade GenAI system</span> for
+              personalized astrology insights and kundli analysis. Powered by a custom RAG pipeline with vector database
+              integration for <span className="text-foreground font-medium">semantic search and contextual response generation</span>.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
                 className="btn-gradient text-white font-bold rounded-full px-8 py-6 text-base group hover-glow"
-                onClick={() => window.open('https://code2crack.com', '_blank')}
+                onClick={() => window.open('https://astromology.com', '_blank')}
               >
                 <ExternalLink className="mr-2 h-5 w-5" />
-                Visit Platform
+                Visit Astromology.com
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="rounded-full px-8 py-6 text-base font-semibold border-2 hover:bg-accent/5 group"
-                onClick={() => window.open('https://code2crack.com/features', '_blank')}
+                onClick={() => document.getElementById('code2crack')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <Sparkles className="mr-2 h-4 w-4" />
-                Explore Features
+                View More Projects
               </Button>
             </div>
           </motion.div>
@@ -148,7 +149,7 @@ const Code2CrackSection = () => {
                 key={index}
                 className="card-elevated card-hover p-8 text-center group hover-lift"
               >
-                <div className={`font-heading text-4xl md:text-5xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
+                <div className={`font-heading text-3xl md:text-4xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
                   {stat.value}
                 </div>
                 <div className="text-sm text-muted-foreground font-medium tracking-wide uppercase">
@@ -157,20 +158,27 @@ const Code2CrackSection = () => {
               </motion.div>
             ))}
           </motion.div>
-
-          {/* Desktop Dashboard Mockup (Absolute positioned or Grid) */}
-          <motion.div
-            className="hidden lg:block absolute top-20 right-0 w-[50%] h-full z-[-1] opacity-40 pointer-events-none"
-            initial={{ opacity: 0, x: 100 }}
-            animate={isInView ? { opacity: 0.4, x: 0 } : {}}
-            transition={{ duration: 1 }}
-          >
-            <div className="relative w-full h-[600px]">
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/20 to-background z-10" />
-              <img src={dashboardMockup} alt="Dashboard Preview" className="w-full h-full object-cover object-left-top mask-image-gradient" />
-            </div>
-          </motion.div>
         </div>
+
+        {/* Dashboard Image */}
+        <motion.div
+          className="mb-20"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <div className="relative max-w-5xl mx-auto">
+            <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 via-cyan-500/20 to-indigo-500/20 rounded-3xl blur-2xl opacity-50" />
+            <div className="relative card-elevated p-3 rounded-2xl overflow-hidden">
+              <img
+                src={astromologyDashboard}
+                alt="Astromology.com - GenAI Powered Astrology Platform Dashboard"
+                className="w-full h-auto rounded-xl object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent rounded-xl" />
+            </div>
+          </div>
+        </motion.div>
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -203,9 +211,9 @@ const Code2CrackSection = () => {
             </motion.div>
           ))}
         </div>
-      </div >
-    </section >
+      </div>
+    </section>
   );
 };
 
-export default Code2CrackSection;
+export default AstromologySection;

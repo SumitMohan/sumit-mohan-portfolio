@@ -1,47 +1,47 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code, Brain, GraduationCap, FileCode, Target, Cpu, Sparkles } from "lucide-react";
+import { Brain, Cpu, BarChart3, Database, Server, Container, Sparkles } from "lucide-react";
 
 const expertise = [
   {
-    icon: Code,
-    title: "Data Structures & Algorithms",
-    description: "Advanced DSA curriculum including Arrays, Trees, Graphs, DP, Greedy algorithms, and competitive programming mentorship.",
-    gradient: "from-cyan-500 to-blue-600",
-    bgGradient: "from-cyan-500/10 to-blue-600/10"
-  },
-  {
     icon: Brain,
-    title: "AI / ML & Generative AI",
-    description: "Cutting-edge GenAI training covering LLM Fundamentals, Prompt Engineering, and AI-first curriculum design.",
+    title: "GenAI & LLMs",
+    description: "RAG, Prompt Engineering, LangChain, Transformers, LoRA, Embeddings, Vector Search, Semantic Search",
     gradient: "from-purple-500 to-pink-600",
     bgGradient: "from-purple-500/10 to-pink-600/10"
   },
   {
-    icon: GraduationCap,
-    title: "Academic Leadership",
-    description: "Strategic leadership in academic program development, faculty coordination, and university-wide training initiatives.",
+    icon: BarChart3,
+    title: "Machine Learning",
+    description: "Scikit-learn, XGBoost, Model Tuning, Feature Engineering, Ensemble Methods, Classification & Regression",
+    gradient: "from-cyan-500 to-blue-600",
+    bgGradient: "from-cyan-500/10 to-blue-600/10"
+  },
+  {
+    icon: Cpu,
+    title: "Deep Learning & NLP",
+    description: "PyTorch, TensorFlow, Natural Language Processing, Neural Networks, Transfer Learning, Model Optimization",
     gradient: "from-amber-500 to-orange-600",
     bgGradient: "from-amber-500/10 to-orange-600/10"
   },
   {
-    icon: FileCode,
-    title: "Curriculum Design",
-    description: "Industry-aligned curriculum frameworks with robust assessment methodologies and NBA/NAAC compliance.",
+    icon: BarChart3,
+    title: "Data Science",
+    description: "Pandas, NumPy, Exploratory Data Analysis, Data Visualization, Hypothesis Testing, Statistical Modeling",
     gradient: "from-emerald-500 to-teal-600",
     bgGradient: "from-emerald-500/10 to-teal-600/10"
   },
   {
-    icon: Target,
-    title: "Placement Readiness",
-    description: "End-to-end placement preparation achieving 95%+ placement rates with industry-standard interview preparation.",
+    icon: Server,
+    title: "Backend & APIs",
+    description: "FastAPI, REST APIs, Microservices Architecture, API Design, Authentication, System Design",
     gradient: "from-rose-500 to-red-600",
     bgGradient: "from-rose-500/10 to-red-600/10"
   },
   {
-    icon: Cpu,
-    title: "Technical Training",
-    description: "Expert instruction in C, C++, Python, Java with focus on practical implementation and problem-solving.",
+    icon: Database,
+    title: "Databases & Deployment",
+    description: "SQL, NoSQL, Vector Databases (FAISS, Pinecone), Docker, Cloud Deployment, CI/CD Basics",
     gradient: "from-indigo-500 to-violet-600",
     bgGradient: "from-indigo-500/10 to-violet-600/10"
   },
@@ -83,7 +83,7 @@ const ExpertiseSection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
           >
             <Sparkles className="w-3.5 h-3.5" />
-            What I Do
+            Technical Skills
           </motion.span>
 
           <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-6 leading-tight">
@@ -91,8 +91,8 @@ const ExpertiseSection = () => {
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Deep expertise in technical education, curriculum development, and building
-            <span className="text-foreground font-medium"> scalable training ecosystems</span>.
+            Deep expertise in GenAI, Machine Learning, and building
+            <span className="text-foreground font-medium"> production-level AI systems</span>.
           </p>
         </motion.div>
 

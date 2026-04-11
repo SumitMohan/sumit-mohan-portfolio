@@ -1,13 +1,14 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { FileText, Linkedin, ExternalLink, Mail, Github, GraduationCap, ArrowUpRight, Sparkles, MessageCircle, Download } from "lucide-react";
+import { FileText, Linkedin, ExternalLink, Mail, Github, GraduationCap, ArrowUpRight, Sparkles, MessageCircle, Star } from "lucide-react";
 
 const socialLinks = [
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/sumitmohan1991/", color: "from-blue-500 to-blue-600" },
   { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/919990562197", color: "from-green-500 to-emerald-600" },
   { icon: Github, label: "GitHub", href: "https://github.com/sumitmohan1", color: "from-gray-600 to-gray-700" },
-  { icon: GraduationCap, label: "Scholar", href: "https://scholar.google.com/citations?user=YOUR_ID", color: "from-purple-500 to-purple-600" },
+  { icon: GraduationCap, label: "Scholar", href: "https://scholar.google.com/citations?user=EVVD-Z0AAAAJ", color: "from-purple-500 to-purple-600" },
+  { icon: Star, label: "Astromology", href: "https://astromology.com", color: "from-amber-500 to-orange-500" },
   { icon: ExternalLink, label: "Code2Crack", href: "https://code2crack.com", color: "from-cyan-500 to-blue-500" },
 ];
 
@@ -94,7 +95,7 @@ const CTASection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Let's Build Impactful <span className="text-shimmer">Training Ecosystems</span>
+            Let's Build Intelligent <span className="text-shimmer">AI Systems Together</span>
           </motion.h2>
 
           <motion.p
@@ -103,8 +104,8 @@ const CTASection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Interested in collaborating on academic programs, EdTech solutions,
-            or training initiatives? <span className="text-white/70 font-medium">Let's connect and explore opportunities.</span>
+            Interested in collaborating on GenAI projects, AI system design,
+            or building production-grade applications? <span className="text-white/70 font-medium">Let's connect and explore opportunities.</span>
           </motion.p>
 
           {/* Main CTA Buttons */}
@@ -123,17 +124,6 @@ const CTASection = () => {
                 <FileText className="mr-2 h-5 w-5" />
                 Download Resume
                 <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </Button>
-
-              <Button
-                size="xl"
-                variant="outline"
-                className="border-white/20 hover:bg-white/10 text-white rounded-full px-8 py-4 text-base font-bold transition-all duration-300 backdrop-blur-sm"
-                onClick={() => window.open('/Cover_Letter.pdf', '_blank')}
-              >
-                <FileText className="mr-2 h-5 w-5" />
-                Cover Letter
-                <Download className="ml-2 h-5 w-5" />
               </Button>
 
               <a
@@ -161,7 +151,7 @@ const CTASection = () => {
             </a>
 
             <a
-              href="http://www.linkedin.com/in/sumit-mohan-dsa-expert"
+              href="https://www.linkedin.com/in/sumitmohan1991/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm group border border-white/10"
@@ -174,7 +164,7 @@ const CTASection = () => {
             </a>
 
             <a
-              href="https://github.com/SumitMohan"
+              href="https://github.com/sumitmohan1"
               target="_blank"
               rel="noopener noreferrer"
               className="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm group border border-white/10"

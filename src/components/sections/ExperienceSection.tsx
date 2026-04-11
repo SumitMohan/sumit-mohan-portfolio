@@ -1,41 +1,41 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin, Calendar, Sparkles } from "lucide-react";
+import { MapPin, Calendar, Sparkles, Rocket } from "lucide-react";
 
 const experiences = [
   {
-    role: "Head - Technical Training",
-    institution: "Chitkara University, Punjab",
+    role: "Founder / Platform Architect",
+    institution: "Code2Crack & Astromology",
+    period: "Ongoing",
+    description: "Built a scalable multi-tenant EdTech SaaS platform with AI-driven learning and analytics. Designed and deployed LLM-based tutoring system using retrieval techniques. Built and deployed a production-grade GenAI application (Astromology) using RAG architecture and LLMs.",
+    current: true,
+  },
+  {
+    role: "Head – Technical Training",
+    institution: "CodeQuotient Pvt. Ltd.",
     period: "Jan 2025 - Present",
-    description: "Lead university-wide technical training initiatives for undergraduate cohorts. Design and standardize industry-aligned curricula for placement readiness.",
+    description: "Designed and delivered data science and machine learning pipelines including EDA, feature engineering, and model development. Mentored students on real-world AI/ML and GenAI projects, including LLM and RAG-based systems.",
     current: true,
   },
   {
     role: "Senior Technical Trainer",
     institution: "Sharda University, Greater Noida",
     period: "Apr 2023 - Jan 2025",
-    description: "Delivered structured training in Python, DSA, and Data Science. Conducted intensive coding bootcamps for interview preparation.",
+    description: "Delivered training in Python, Data Science, and Machine Learning with hands-on project implementation. Built end-to-end ML workflows covering data preprocessing, modeling, and evaluation.",
     current: false,
   },
   {
-    role: "Head of Department - CSE",
+    role: "Head of Department – CSE",
     institution: "SDGI Global University, Ghaziabad",
     period: "Mar 2022 - Apr 2023",
-    description: "Led academic planning, curriculum updates, and faculty coordination. Strengthened industry interaction for student mentoring.",
+    description: "Led curriculum modernization by integrating AI/ML and data science concepts. Strengthened industry collaboration for internships and technical training. Managed academic operations and faculty coordination.",
     current: false,
   },
   {
-    role: "Training & Placement Coordinator",
-    institution: "BIET Jhansi - Autonomous Institute",
+    role: "Training & Placement",
+    institution: "BIET Jhansi – Autonomous Institute",
     period: "Mar 2019 - Feb 2022",
-    description: "Conducted pre-placement training and career guidance. Coordinated industry talks, internships, and alumni engagement.",
-    current: false,
-  },
-  {
-    role: "Assistant Professor",
-    institution: "IIMT, Greater Noida",
-    period: "Aug 2018 - Mar 2019",
-    description: "Taught Programming and Data Structures & Algorithms. Mentored students in coding fundamentals and logic building.",
+    description: "Delivered technical training aligned with industry hiring standards. Mentored students and coordinated internships and placement preparation.",
     current: false,
   },
 ];
@@ -66,7 +66,7 @@ const ExperienceSection = () => {
             Impact <span className="font-serif text-accent italic px-1">&</span> <span className="text-shimmer">Professional Journey</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground">
-            A progressive journey through technical education and academic leadership.
+            A progressive journey through AI engineering, platform building, and technical leadership.
           </p>
         </motion.div>
 
@@ -119,7 +119,7 @@ const ExperienceSection = () => {
                           animate={{ opacity: [1, 0.4, 1], scale: [1, 1.2, 1] }}
                           transition={{ duration: 1.5, repeat: Infinity }}
                         />
-                        Current Role
+                        {index === 0 ? "Founder" : "Current Role"}
                       </span>
                     )}
                     <h3 className="font-heading text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
@@ -127,7 +127,7 @@ const ExperienceSection = () => {
                     </h3>
                     <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
                       <span className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-accent" />
+                        {index === 0 ? <Rocket className="w-4 h-4 text-accent" /> : <MapPin className="w-4 h-4 text-accent" />}
                         {exp.institution}
                       </span>
                       <span className="flex items-center gap-2">

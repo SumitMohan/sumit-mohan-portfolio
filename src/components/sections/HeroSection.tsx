@@ -1,7 +1,11 @@
-import { ArrowRight, FileText, ArrowDown, MousePointer2 } from "lucide-react";
+import { ArrowRight, FileText, ArrowDown, MousePointer2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
+
+const techPills = [
+  "RAG Pipelines", "LLMs", "LangChain", "FastAPI", "PyTorch",
+  "Vector Databases", "Prompt Engineering", "Transformers"
+];
 
 const HeroSection = () => {
   return (
@@ -26,7 +30,7 @@ const HeroSection = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
               </span>
-              Transforming Engineering Education
+              Building Production-Grade AI Systems
             </div>
           </motion.div>
 
@@ -37,37 +41,60 @@ const HeroSection = () => {
             className="space-y-6 max-w-5xl"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] md:leading-tight">
-              Transforming Academic Learning <br className="hidden md:block" />
-              into <span className="gradient-text">Industry-Ready AI Skills</span>
+              Building Intelligent AI Systems <br className="hidden md:block" />
+              from <span className="gradient-text">Research to Production</span>
             </h1>
-            <p className="mx-auto max-w-2xl text-muted-foreground text-lg md:text-xl leading-relaxed">
-              Head of Technical Training & EdTech Founder building scalable, <span className="text-foreground font-semibold">industry-aligned learning ecosystems.</span>
+            <p className="mx-auto max-w-3xl text-muted-foreground text-lg md:text-xl leading-relaxed">
+              <span className="text-foreground font-semibold">GenAI Engineer & Data Scientist</span> with 7+ years building scalable AI systems,
+              LLM-powered products, and intelligent applications. Creator of{" "}
+              <span className="text-foreground font-semibold">Astromology.com</span> &{" "}
+              <span className="text-foreground font-semibold">Code2Crack</span>.
             </p>
+          </motion.div>
+
+          {/* Tech Pills */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
+            className="flex flex-wrap justify-center gap-2 max-w-2xl"
+          >
+            {techPills.map((pill, index) => (
+              <motion.span
+                key={pill}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.4 + index * 0.06 }}
+                className="px-4 py-1.5 rounded-full text-xs font-semibold bg-accent/10 text-accent border border-accent/20 backdrop-blur-sm hover:bg-accent/20 transition-colors cursor-default"
+              >
+                {pill}
+              </motion.span>
+            ))}
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
             className="flex flex-col sm:flex-row gap-5 w-full justify-center pt-4"
           >
             <Button
               size="lg"
               className="btn-gradient h-14 px-8 rounded-full text-base font-semibold tracking-wide hover-glow"
-              onClick={() => window.open("https://code2crack.com", "_blank")}
+              onClick={() => window.open("https://astromology.com", "_blank")}
             >
-              <MousePointer2 className="mr-2 h-5 w-5 animate-pulse" />
-              Explore Innovation
+              <Sparkles className="mr-2 h-5 w-5 animate-pulse" />
+              Explore Astromology.com
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="h-14 px-8 rounded-full border-primary/20 bg-background/50 backdrop-blur-xl hover:bg-primary/5 text-base font-medium transition-all duration-300 hover:border-primary/50"
-              onClick={() => document.getElementById('publications')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <FileText className="mr-2 h-5 w-5" />
-              View Research
+              View Projects
             </Button>
           </motion.div>
         </div>

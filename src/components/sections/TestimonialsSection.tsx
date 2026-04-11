@@ -4,22 +4,22 @@ import { Quote, Sparkles } from "lucide-react";
 
 const testimonials = [
     {
-        quote: "Sumit's ability to bridge the gap between academic theory and industry application is unmatched. His training programs have significantly improved our placement statistics.",
-        author: "Dr. Rajesh K.",
-        role: "Dean of Academics",
-        org: "Partner University"
+        quote: "Sumit's GenAI expertise is exceptional. His work on Astromology.com demonstrates a deep understanding of RAG pipelines and production-grade AI system design.",
+        author: "Tech Industry Peer",
+        role: "Senior AI Engineer",
+        org: "AI/ML Community"
     },
     {
-        quote: "The Code2Crack platform transformed how our students practice coding. The AI recommendations are spot on.",
+        quote: "The Code2Crack platform transformed how our students practice coding. The AI-powered tutoring and analytics are spot on.",
         author: "Engineering Student",
-        role: "Placed at Capgemini",
+        role: "Placed at Top MNC",
         org: "Class of 2024"
     },
     {
-        quote: "A visionary leader in EdTech. His curriculum design ensures students are day-one ready for the corporate world.",
-        author: "Industry Recruiter",
-        role: "Senior HR",
-        org: "Top MNC"
+        quote: "A visionary builder in AI and EdTech. His ability to take ideas from research to production deployment is remarkable.",
+        author: "Industry Collaborator",
+        role: "CTO",
+        org: "Tech Startup"
     }
 ];
 
@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
                         Endorsements
                     </motion.span>
                     <h2 className="font-heading text-3xl md:text-4xl font-black text-foreground mb-6">
-                        Trusted by the <span className="text-shimmer">Academic Community</span>
+                        Trusted by the <span className="text-shimmer">Tech Community</span>
                     </h2>
                 </motion.div>
 

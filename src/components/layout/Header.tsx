@@ -5,8 +5,9 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const navLinks = [
   { href: "#about", label: "About" },
-  { href: "#experience", label: "Impact" },
-  { href: "#code2crack", label: "Ventures" },
+  { href: "#expertise", label: "Skills" },
+  { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Experience" },
   { href: "#publications", label: "Research" },
   { href: "#contact", label: "Contact" },
 ];
@@ -52,11 +53,10 @@ const Header = () => {
               <span className="text-xl md:text-2xl font-black font-heading text-shimmer tracking-tight">
                 Sumit Mohan
               </span>
-              <div className="flex justify-between items-center w-full mt-0.5 px-0.5">
-                <span className="text-[0.55rem] md:text-[0.65rem] font-semibold text-muted-foreground/80 tracking-tight">Bridging</span>
-                <span className="text-[0.55rem] md:text-[0.65rem] font-semibold text-muted-foreground/80 tracking-tight">Academia</span>
-                <span className="text-[0.55rem] md:text-[0.65rem] font-semibold text-muted-foreground/80 tracking-tight">&</span>
-                <span className="text-[0.55rem] md:text-[0.65rem] font-semibold text-muted-foreground/80 tracking-tight">Industry</span>
+              <div className="flex items-center gap-1.5 mt-1 px-0.5">
+                <span className="text-[0.55rem] md:text-[0.65rem] font-semibold text-muted-foreground/80 tracking-tight">GenAI Engineer</span>
+                <span className="text-[0.55rem] md:text-[0.65rem] font-semibold text-accent/60">·</span>
+                <span className="text-[0.55rem] md:text-[0.65rem] font-semibold text-muted-foreground/80 tracking-tight">AI Systems Builder</span>
               </div>
             </div>
           </a>
@@ -83,9 +83,9 @@ const Header = () => {
             <Button
               size="sm"
               className="btn-gradient text-white font-semibold shadow-lg hover-glow transition-all duration-300"
-              onClick={() => window.open("https://code2crack.com", "_blank")}
+              onClick={() => window.open("https://astromology.com", "_blank")}
             >
-              Code2Crack
+              Astromology.com
             </Button>
           </div>
 
@@ -117,10 +117,10 @@ const Header = () => {
                   className="w-full btn-gradient"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    window.open("https://code2crack.com", "_blank");
+                    window.open("https://astromology.com", "_blank");
                   }}
                 >
-                  Explore Code2Crack
+                  Explore Astromology.com
                 </Button>
                 <div className="flex justify-center">
                   <ThemeToggle />

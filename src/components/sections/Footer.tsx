@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, ExternalLink, GraduationCap, Phone, Heart, ArrowUpRight, MessageCircle } from "lucide-react";
+import { Mail, Linkedin, Github, ExternalLink, GraduationCap, Heart, ArrowUpRight, MessageCircle, Star } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,15 +9,17 @@ const Footer = () => {
     { icon: MessageCircle, href: "https://wa.me/919990562197", label: "WhatsApp", gradient: "from-emerald-500 to-teal-600" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/sumitmohan1991/", label: "LinkedIn", gradient: "from-blue-500 to-blue-600" },
     { icon: Github, href: "https://github.com/sumitmohan1", label: "GitHub", gradient: "from-gray-500 to-gray-700" },
-    { icon: GraduationCap, href: "https://scholar.google.com/citations?user=YOUR_ID", label: "Scholar", gradient: "from-purple-500 to-pink-600" },
+    { icon: GraduationCap, href: "https://scholar.google.com/citations?user=EVVD-Z0AAAAJ", label: "Scholar", gradient: "from-purple-500 to-pink-600" },
+    { icon: Star, href: "https://astromology.com", label: "Astromology", gradient: "from-amber-500 to-orange-500" },
     { icon: ExternalLink, href: "https://code2crack.com", label: "Code2Crack", gradient: "from-cyan-500 to-blue-500" },
   ];
 
   const quickLinks = [
     { label: "About", href: "#about" },
-    { label: "Expertise", href: "#expertise" },
-    { label: "Experience", href: "#experience" },
+    { label: "Skills", href: "#expertise" },
+    { label: "Astromology", href: "#astromology" },
     { label: "Code2Crack", href: "#code2crack" },
+    { label: "Experience", href: "#experience" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -55,7 +57,7 @@ const Footer = () => {
               Sumit Mohan
             </span>
             <p className="text-muted-foreground text-base mb-6 max-w-xs leading-relaxed text-justify">
-              Head of Technical Training & Academic Leader. Building industry-aligned training ecosystems.
+              GenAI Engineer & Data Scientist. Building intelligent AI systems from research to production.
             </p>
             <ul className="space-y-3 text-muted-foreground text-sm">
               <li>
@@ -77,7 +79,7 @@ const Footer = () => {
               </li>
               <li className="flex gap-4 pt-2">
                 <a
-                  href="https://github.com/SumitMohan"
+                  href="https://github.com/sumitmohan1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-muted hover:bg-primary/10 p-2 rounded-full transition-all hover:text-primary"
@@ -86,7 +88,7 @@ const Footer = () => {
                   <Github className="h-4 w-4" />
                 </a>
                 <a
-                  href="http://www.linkedin.com/in/sumit-mohan-dsa-expert"
+                  href="https://www.linkedin.com/in/sumitmohan1991/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-muted hover:bg-primary/10 p-2 rounded-full transition-all hover:text-primary"
@@ -178,7 +180,7 @@ const Footer = () => {
               >
                 <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
               </motion.span>
-              for excellence in education
+              for AI excellence
             </motion.p>
           </div>
         </div>

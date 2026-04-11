@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Trophy, FileCheck, Users, Brain, GraduationCap, Sparkles, Award } from "lucide-react";
+import { Trophy, FileCheck, Users, Brain, Rocket, GraduationCap, Sparkles, Award } from "lucide-react";
 
 const achievements = [
   {
@@ -18,18 +18,18 @@ const achievements = [
     gradient: "from-emerald-500 to-teal-600"
   },
   {
-    icon: Users,
-    title: "Student Impact",
-    description: "Mentored across multiple batches",
-    highlight: "10K+",
-    gradient: "from-cyan-500 to-blue-600"
+    icon: Rocket,
+    title: "Astromology.com",
+    description: "Built & deployed GenAI-powered astrology platform",
+    highlight: "Live",
+    gradient: "from-purple-500 to-pink-600"
   },
   {
     icon: Brain,
-    title: "Training Programs",
-    description: "AI, DSA, Python, GenAI programs",
-    highlight: "50+",
-    gradient: "from-purple-500 to-pink-600"
+    title: "Code2Crack",
+    description: "Built AI-powered EdTech platform at scale",
+    highlight: "10K+",
+    gradient: "from-cyan-500 to-blue-600"
   },
 ];
 
@@ -37,6 +37,7 @@ const qualifications = [
   { degree: "Ph.D. in Machine Learning", institution: "AKTU, Lucknow", year: "2026*", gradient: "from-purple-500 to-pink-500" },
   { degree: "M.Tech in Computer Science", institution: "Computer Science", year: "2018", gradient: "from-cyan-500 to-blue-500" },
   { degree: "B.Tech in Computer Science", institution: "Computer Science", year: "2016", gradient: "from-emerald-500 to-teal-500" },
+  { degree: "Polytechnic Diploma", institution: "Computer Science", year: "2013", gradient: "from-amber-500 to-orange-500" },
 ];
 
 const AchievementsSection = () => {
