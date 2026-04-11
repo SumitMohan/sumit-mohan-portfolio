@@ -15,6 +15,10 @@ import TrustSection from "@/components/sections/TrustSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 
+const SectionDivider = () => (
+  <div className="section-divider mx-auto px-4 sm:px-6 lg:px-8" />
+);
+
 const Index = () => {
   return (
     <>
@@ -42,15 +46,23 @@ const Index = () => {
           <HeroSection />
           <TrustSection />
           <AboutSection />
+          <SectionDivider />
           <ExpertiseSection />
+          <SectionDivider />
           <div id="projects">
             <AstromologySection />
+            <SectionDivider />
             <Code2CrackSection />
           </div>
+          <SectionDivider />
           <ExperienceSection />
+          <SectionDivider />
           <TechToolkitSection />
+          <SectionDivider />
           <PublicationsSection />
+          <SectionDivider />
           <AchievementsSection />
+          <SectionDivider />
           <TestimonialsSection />
           <CTASection />
         </main>

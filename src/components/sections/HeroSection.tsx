@@ -1,99 +1,106 @@
-import { ArrowRight, FileText, ArrowDown, MousePointer2, Sparkles } from "lucide-react";
+import { ArrowRight, FileText, ArrowDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-
-const techPills = [
-  "RAG Pipelines", "LLMs", "LangChain", "FastAPI", "PyTorch",
-  "Vector Databases", "Prompt Engineering", "Transformers"
-];
 
 const HeroSection = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-background">
-      {/* Background with Noise & Gradient */}
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-background to-background"></div>
-      <div className="absolute inset-0 z-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] brightness-100 contrast-150 mix-blend-overlay"></div>
+      {/* Background: Deep gradient + dot grid */}
+      <div className="absolute inset-0 z-0" style={{ background: 'var(--gradient-hero)' }} />
+      <div className="absolute inset-0 z-0 professional-grid opacity-40" />
 
-      {/* Animated Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[100px] animate-pulse-glow z-0"></div>
+      {/* Subtle radial glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent/10 rounded-full blur-[120px] z-0" />
+
+      {/* Noise */}
+      <div className="absolute inset-0 z-0 noise-overlay pointer-events-none" />
 
       <div className="container relative z-10 px-4 md:px-6">
-        <div className="flex flex-col items-center space-y-8 text-center">
+        <div className="flex flex-col items-center space-y-8 text-center max-w-4xl mx-auto">
 
+          {/* Status Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="section-badge backdrop-blur-md">
+            <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/[0.08] text-white/70 text-xs font-semibold tracking-wider uppercase">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
               </span>
-              Building Production-Grade AI Systems
+              Open to GenAI & AI Engineering Roles
             </div>
           </motion.div>
 
+          {/* Main Headline */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="space-y-6 max-w-5xl"
+            transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+            className="space-y-6"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] md:leading-tight">
-              Building Intelligent AI Systems <br className="hidden md:block" />
-              from <span className="gradient-text">Research to Production</span>
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black tracking-tight leading-[1.1] text-white">
+              Architecting Intelligent Systems
+              <br className="hidden md:block" />
+              <span className="text-shimmer">from Research to Production</span>
             </h1>
-            <p className="mx-auto max-w-3xl text-muted-foreground text-lg md:text-xl leading-relaxed">
-              <span className="text-foreground font-semibold">GenAI Engineer & Data Scientist</span> with 7+ years building scalable AI systems,
-              LLM-powered products, and intelligent applications. Creator of{" "}
-              <span className="text-foreground font-semibold">Astromology.com</span> &{" "}
-              <span className="text-foreground font-semibold">Code2Crack</span>.
+
+            {/* Professional subtitle */}
+            <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+              <span className="text-white/80">GenAI Engineer & Data Scientist</span> with 7+ years
+              building scalable AI systems, LLM-powered products, and production-grade applications.
             </p>
           </motion.div>
 
-          {/* Tech Pills */}
+          {/* Status Line */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.35 }}
+            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-white/40 text-sm font-medium"
+          >
+            <span className="flex items-center gap-2">
+              <span className="w-1 h-1 rounded-full bg-accent" />
+              7+ Years Experience
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1 h-1 rounded-full bg-accent" />
+              6 Publications
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1 h-1 rounded-full bg-accent" />
+              2 Live Products
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1 h-1 rounded-full bg-accent" />
+              PhD Candidate
+            </span>
+          </motion.div>
+
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
-            className="flex flex-wrap justify-center gap-2 max-w-2xl"
-          >
-            {techPills.map((pill, index) => (
-              <motion.span
-                key={pill}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.4 + index * 0.06 }}
-                className="px-4 py-1.5 rounded-full text-xs font-semibold bg-accent/10 text-accent border border-accent/20 backdrop-blur-sm hover:bg-accent/20 transition-colors cursor-default"
-              >
-                {pill}
-              </motion.span>
-            ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-5 w-full justify-center pt-4"
+            className="flex flex-col sm:flex-row gap-4 pt-4"
           >
             <Button
               size="lg"
-              className="btn-gradient h-14 px-8 rounded-full text-base font-semibold tracking-wide hover-glow"
+              className="btn-gradient h-12 px-8 rounded-lg text-sm font-bold tracking-wide text-white"
               onClick={() => window.open("https://astromology.com", "_blank")}
             >
-              <Sparkles className="mr-2 h-5 w-5 animate-pulse" />
+              <Sparkles className="mr-2 h-4 w-4" />
               Explore Astromology.com
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="h-14 px-8 rounded-full border-primary/20 bg-background/50 backdrop-blur-xl hover:bg-primary/5 text-base font-medium transition-all duration-300 hover:border-primary/50"
+              className="h-12 px-8 rounded-lg border-white/10 bg-white/[0.04] backdrop-blur-xl hover:bg-white/[0.08] text-white/80 text-sm font-semibold transition-all duration-300 hover:border-white/20"
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <FileText className="mr-2 h-5 w-5" />
+              <FileText className="mr-2 h-4 w-4" />
               View Projects
             </Button>
           </motion.div>
@@ -105,11 +112,11 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-xs text-muted-foreground uppercase tracking-widest">Scroll</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-transparent via-primary/20 to-primary/50"></div>
+          <span className="text-[10px] text-white/30 uppercase tracking-[0.25em] font-medium">Scroll</span>
+          <div className="w-[1px] h-8 bg-gradient-to-b from-transparent to-white/20" />
         </div>
       </motion.div>
     </section>

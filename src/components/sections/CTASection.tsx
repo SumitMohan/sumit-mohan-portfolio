@@ -1,16 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { FileText, Linkedin, ExternalLink, Mail, Github, GraduationCap, ArrowUpRight, Sparkles, MessageCircle, Star } from "lucide-react";
-
-const socialLinks = [
-  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/sumitmohan1991/", color: "from-blue-500 to-blue-600" },
-  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/919990562197", color: "from-green-500 to-emerald-600" },
-  { icon: Github, label: "GitHub", href: "https://github.com/sumitmohan1", color: "from-gray-600 to-gray-700" },
-  { icon: GraduationCap, label: "Scholar", href: "https://scholar.google.com/citations?user=EVVD-Z0AAAAJ", color: "from-purple-500 to-purple-600" },
-  { icon: Star, label: "Astromology", href: "https://astromology.com", color: "from-amber-500 to-orange-500" },
-  { icon: ExternalLink, label: "Code2Crack", href: "https://code2crack.com", color: "from-cyan-500 to-blue-500" },
-];
+import { FileText, Linkedin, Mail, Github, ArrowUpRight, MessageCircle } from "lucide-react";
 
 const CTASection = () => {
   const containerRef = useRef(null);
@@ -19,79 +10,37 @@ const CTASection = () => {
   return (
     <section id="contact" className="section-padding relative overflow-hidden">
       {/* Background */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{ background: 'var(--gradient-hero)' }}
-      />
+      <div className="absolute inset-0 z-0" style={{ background: 'var(--gradient-hero)' }} />
+      <div className="absolute inset-0 z-0 professional-grid opacity-30" />
 
-      {/* Animated Gradient Orbs */}
-      <div className="absolute inset-0 z-[1] overflow-hidden">
-        <motion.div
-          className="absolute top-10 left-10 w-[400px] h-[400px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, hsl(192 100% 50% / 0.2) 0%, transparent 70%)'
-          }}
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.5, 0.3],
-            x: [0, 40, 0]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-10 right-10 w-[500px] h-[500px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, hsl(280 100% 60% / 0.15) 0%, transparent 70%)'
-          }}
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.4, 0.2]
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, hsl(220 100% 60% / 0.08) 0%, transparent 60%)'
-          }}
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ duration: 15, repeat: Infinity }}
-        />
-      </div>
+      {/* Subtle glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-accent/10 rounded-full blur-[100px] z-[1]" />
 
-      {/* Grid Pattern */}
-      <div
-        className="absolute inset-0 z-[2] opacity-[0.02]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }}
-      />
-
-      {/* Noise Texture */}
-      <div className="absolute inset-0 z-[3] noise-overlay pointer-events-none" />
+      {/* Noise */}
+      <div className="absolute inset-0 z-[2] noise-overlay pointer-events-none" />
 
       <div className="section-container relative z-10" ref={containerRef}>
         <motion.div
-          className="max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 50 }}
+          className="max-w-3xl mx-auto text-center"
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
+          {/* Badge */}
           <motion.span
-            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/[0.08] backdrop-blur-xl border border-white/[0.12] mb-10"
-            initial={{ opacity: 0, y: 20 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/[0.08] mb-8"
+            initial={{ opacity: 0, y: 15 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <MessageCircle className="w-4 h-4 text-accent" />
-            <span className="text-white/80 text-sm font-semibold">Ready to Connect?</span>
+            <MessageCircle className="w-3.5 h-3.5 text-accent" />
+            <span className="text-white/60 text-xs font-semibold tracking-wider uppercase">Let's Connect</span>
           </motion.span>
 
+          {/* Heading */}
           <motion.h2
-            className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-white mb-8 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
+            className="font-heading text-2xl md:text-3xl lg:text-4xl font-black text-white mb-5 leading-tight"
+            initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
@@ -99,120 +48,99 @@ const CTASection = () => {
           </motion.h2>
 
           <motion.p
-            className="text-lg text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
+            className="text-base text-white/50 mb-10 max-w-xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             Interested in collaborating on GenAI projects, AI system design,
-            or building production-grade applications? <span className="text-white/70 font-medium">Let's connect and explore opportunities.</span>
+            or building production-grade applications? Let's connect.
           </motion.p>
 
-          {/* Main CTA Buttons */}
+          {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row justify-center gap-5 mb-14"
-            initial={{ opacity: 0, y: 30 }}
+            className="flex flex-col sm:flex-row justify-center gap-4 mb-14"
+            initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div className="flex flex-col md:flex-row gap-4 justify-center mb-16">
-              <Button
-                size="xl"
-                className="bg-white text-primary hover:bg-white/95 shadow-2xl shadow-white/20 rounded-full px-8 py-4 text-base font-bold group hover-glow"
-                onClick={() => window.open('/Resume.pdf', '_blank')}
-              >
-                <FileText className="mr-2 h-5 w-5" />
-                Download Resume
-                <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </Button>
+            <Button
+              size="lg"
+              className="bg-white text-primary hover:bg-white/95 shadow-xl rounded-lg h-12 px-8 text-sm font-bold group"
+              onClick={() => window.open('/Resume.pdf', '_blank')}
+            >
+              <FileText className="mr-2 h-4 w-4" />
+              Download Resume
+              <ArrowUpRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Button>
 
-              <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=sumitmohan91@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center whitespace-nowrap text-base font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-white/20 bg-transparent shadow-sm hover:bg-white/10 text-white rounded-full px-8 py-4 backdrop-blur-sm h-14 md:h-[3.5rem] hover-glow"
-              >
-                <Mail className="mr-2 h-5 w-5" />
-                Get in Touch
-              </a>
-            </div>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=sumitmohan91@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center whitespace-nowrap text-sm font-bold transition-all duration-300 border border-white/15 bg-white/[0.04] hover:bg-white/[0.08] text-white/80 rounded-lg px-8 h-12 backdrop-blur-sm"
+            >
+              <Mail className="mr-2 h-4 w-4" />
+              Get in Touch
+            </a>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center max-w-4xl mx-auto">
+          {/* Contact Cards */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
             <a
               href="mailto:sumitmohan91@gmail.com"
-              className="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm group border border-white/10"
+              className="p-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.07] transition-colors backdrop-blur-sm group border border-white/[0.06]"
             >
-              <div className="mx-auto w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                <Mail className="h-6 w-6 text-white" />
+              <div className="mx-auto w-10 h-10 bg-white/[0.06] rounded-lg flex items-center justify-center mb-2 group-hover:bg-white/[0.1] transition-colors">
+                <Mail className="h-5 w-5 text-white/70" />
               </div>
-              <h3 className="text-white font-semibold mb-1">Email Me</h3>
-              <p className="text-blue-100/70 text-sm">sumitmohan91@gmail.com</p>
+              <h3 className="text-white/90 font-semibold text-sm mb-0.5">Email</h3>
+              <p className="text-white/40 text-xs">sumitmohan91@gmail.com</p>
             </a>
 
             <a
               href="https://www.linkedin.com/in/sumitmohan1991/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm group border border-white/10"
+              className="p-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.07] transition-colors backdrop-blur-sm group border border-white/[0.06]"
             >
-              <div className="mx-auto w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                <Linkedin className="h-6 w-6 text-white" />
+              <div className="mx-auto w-10 h-10 bg-white/[0.06] rounded-lg flex items-center justify-center mb-2 group-hover:bg-white/[0.1] transition-colors">
+                <Linkedin className="h-5 w-5 text-white/70" />
               </div>
-              <h3 className="text-white font-semibold mb-1">LinkedIn</h3>
-              <p className="text-blue-100/70 text-sm">Connect Professionally</p>
+              <h3 className="text-white/90 font-semibold text-sm mb-0.5">LinkedIn</h3>
+              <p className="text-white/40 text-xs">Connect Professionally</p>
             </a>
 
             <a
               href="https://github.com/sumitmohan1"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm group border border-white/10"
+              className="p-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.07] transition-colors backdrop-blur-sm group border border-white/[0.06]"
             >
-              <div className="mx-auto w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                <Github className="h-6 w-6 text-white" />
+              <div className="mx-auto w-10 h-10 bg-white/[0.06] rounded-lg flex items-center justify-center mb-2 group-hover:bg-white/[0.1] transition-colors">
+                <Github className="h-5 w-5 text-white/70" />
               </div>
-              <h3 className="text-white font-semibold mb-1">GitHub</h3>
-              <p className="text-blue-100/70 text-sm">View Projects</p>
+              <h3 className="text-white/90 font-semibold text-sm mb-0.5">GitHub</h3>
+              <p className="text-white/40 text-xs">View Projects</p>
             </a>
-          </div>
-
-          {/* Social Links */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-4 mt-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            {socialLinks.map((link, index) => (
-              <motion.a
-                key={index}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -3 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/[0.08] backdrop-blur-sm border border-white/[0.12] text-white/80 hover:text-white hover:bg-white/15 hover:border-white/20 transition-all duration-300 text-sm font-semibold group hover-glow"
-              >
-                <span className={`w-8 h-8 rounded-lg bg-gradient-to-br ${link.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                  <link.icon className="w-4 h-4 text-white" />
-                </span>
-                {link.label}
-              </motion.a>
-            ))}
           </motion.div>
 
-          {/* Email Direct */}
+          {/* Direct Email */}
           <motion.div
-            className="mt-12 pt-12 border-t border-white/10"
+            className="mt-12 pt-8 border-t border-white/[0.06]"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            <p className="text-white/60 text-sm mb-3">Or reach me directly at</p>
+            <p className="text-white/30 text-xs mb-2">Or reach me directly at</p>
             <a
               href="mailto:sumitmohan91@gmail.com"
-              className="text-xl md:text-2xl font-heading font-bold text-shimmer hover:opacity-80 transition-opacity"
+              className="text-lg font-heading font-bold text-shimmer hover:opacity-80 transition-opacity"
             >
               sumitmohan91@gmail.com
             </a>

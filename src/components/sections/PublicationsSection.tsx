@@ -1,8 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ChevronDown, BookOpen, FileText, Sparkles, Brain, GraduationCap, ExternalLink } from "lucide-react";
+import { ChevronDown, BookOpen, FileText, Brain, GraduationCap, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import researchImg from "@/assets/ai-research.png";
 
 const publications = {
   sci: [
@@ -22,230 +21,146 @@ const publications = {
   ],
 };
 
-const PublicationCategory = ({
-  title,
-  badge,
-  items,
-  delay,
-  isInView,
-  gradient,
-  iconGradient
-}: {
-  title: string;
-  badge: string;
-  items: { title: string; impact?: string }[];
-  delay: number;
-  isInView: boolean;
-  gradient: string;
-  iconGradient: string;
-}) => {
-  const [isOpen, setIsOpen] = useState(true);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay }}
-      className="card-elevated overflow-hidden group hover-lift"
-    >
-      {/* Top gradient line */}
-      <div className={`h-1 bg-gradient-to-r ${gradient} opacity-60`} />
-
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-6 hover:bg-muted/30 transition-colors"
-      >
-        <div className="flex items-center gap-5">
-          <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${iconGradient} flex items-center justify-center shadow-lg`}>
-            <BookOpen className="w-6 h-6 text-white" />
-          </div>
-          <div className="text-left">
-            <h3 className="font-heading font-bold text-lg text-foreground">{title}</h3>
-            <span className={`text-xs font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent uppercase tracking-wider`}>
-              {badge}
-            </span>
-          </div>
-        </div>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
-          className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-accent/10 group-hover:text-accent transition-colors"
-        >
-          <ChevronDown className="w-5 h-5" />
-        </motion.div>
-      </button>
-
-      <motion.div
-        initial={false}
-        animate={{
-          height: isOpen ? "auto" : 0,
-          opacity: isOpen ? 1 : 0
-        }}
-        transition={{ duration: 0.3 }}
-        className="overflow-hidden"
-      >
-        <div className="px-6 pb-6 space-y-3">
-          {items.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              animate={isOpen ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.3, delay: index * 0.08 }}
-              whileHover={{ x: 8 }}
-              className="flex items-start gap-4 p-5 rounded-xl bg-muted/30 hover:bg-muted/50 border border-transparent hover:border-accent/20 transition-all group/item cursor-default"
-            >
-              <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${iconGradient} bg-opacity-20 flex items-center justify-center flex-shrink-0`}>
-                <FileText className="w-5 h-5 text-white" />
-              </div>
-              <div className="flex-1">
-                <p className="text-foreground font-medium group-hover/item:text-primary transition-colors leading-relaxed">
-                  {item.title}
-                </p>
-                {item.impact && (
-                  <span className={`inline-flex items-center gap-1 text-xs font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent mt-2`}>
-                    ★ {item.impact}
-                  </span>
-                )}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-};
+const categories = [
+  {
+    key: "sci" as const,
+    title: "SCI-Indexed",
+    badge: "High Impact",
+    items: publications.sci,
+    accentColor: "text-amber-500",
+    barColor: "from-amber-500 to-orange-500",
+  },
+  {
+    key: "scopus" as const,
+    title: "Scopus-Indexed",
+    badge: "3 Papers",
+    items: publications.scopus,
+    accentColor: "text-cyan-500",
+    barColor: "from-cyan-500 to-blue-500",
+  },
+  {
+    key: "ugc" as const,
+    title: "UGC-Care",
+    badge: "2 Papers",
+    items: publications.ugc,
+    accentColor: "text-purple-500",
+    barColor: "from-purple-500 to-pink-500",
+  },
+];
 
 const PublicationsSection = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const [openCategory, setOpenCategory] = useState<string | null>("sci");
 
   return (
-    <section id="publications" className="section-padding relative overflow-hidden" style={{ background: 'var(--gradient-subtle)' }}>
-      {/* Decorative Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          className="absolute top-20 left-10 w-[350px] h-[350px] rounded-full opacity-30"
-          style={{ background: 'radial-gradient(circle, hsl(192 100% 50% / 0.06) 0%, transparent 70%)' }}
-          animate={{ x: [0, 20, 0] }}
-          transition={{ duration: 12, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-[400px] h-[400px] rounded-full opacity-20"
-          style={{ background: 'radial-gradient(circle, hsl(280 100% 60% / 0.06) 0%, transparent 70%)' }}
-          animate={{ y: [0, 30, 0] }}
-          transition={{ duration: 15, repeat: Infinity }}
-        />
-      </div>
-
+    <section id="publications" className="section-padding relative overflow-hidden professional-grid" style={{ background: 'var(--gradient-subtle)' }}>
       <div className="section-container relative z-10" ref={containerRef}>
         {/* Header */}
         <motion.div
-          className="text-center max-w-3xl mx-auto mb-16"
-          initial={{ opacity: 0, y: 40 }}
+          className="text-center max-w-3xl mx-auto mb-14"
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
           <motion.span
-            className="section-badge mb-8 inline-flex"
+            className="section-badge mb-6 inline-flex"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
           >
-            <Sparkles className="w-3.5 h-3.5" />
             Research
           </motion.span>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 leading-tight">
-            Publications <span className="font-serif text-accent italic px-1">&</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Scholarly Impact</span>
+
+          <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-5 leading-tight">
+            Publications & <span className="text-shimmer">Scholarly Impact</span>
           </h2>
+
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
+            Peer-reviewed publications in <span className="text-foreground font-medium">machine learning</span> and computing.
+          </p>
 
           <Button
             onClick={() => window.open('https://scholar.google.com/citations?user=EVVD-Z0AAAAJ', '_blank')}
-            className="gap-2 bg-white text-primary hover:bg-white/90 shadow-lg border border-primary/10"
             variant="outline"
+            className="gap-2 text-sm font-semibold border-border hover:bg-muted/50"
           >
-            <GraduationCap className="w-5 h-5" />
+            <GraduationCap className="w-4 h-4" />
             View Google Scholar
-            <ExternalLink className="w-4 h-4 ml-1 opacity-50" />
+            <ExternalLink className="w-3.5 h-3.5 opacity-50" />
           </Button>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Peer-reviewed publications in <span className="text-foreground font-medium">machine learning</span> and computing.
-          </p>
         </motion.div>
 
-
-
-        <div className="grid lg:grid-cols-5 gap-12 items-start">
-          {/* Publications List - Left Side */}
-          <div className="lg:col-span-3 space-y-5">
-            <PublicationCategory
-              title="SCI-Indexed Publications"
-              badge="High Impact Factor"
-              items={publications.sci}
-              delay={0.2}
-              isInView={isInView}
-              gradient="from-amber-500 to-orange-500"
-              iconGradient="from-amber-500 to-orange-600"
-            />
-            <PublicationCategory
-              title="Scopus-Indexed Publications"
-              badge="3 Publications"
-              items={publications.scopus}
-              delay={0.3}
-              isInView={isInView}
-              gradient="from-cyan-500 to-blue-500"
-              iconGradient="from-cyan-500 to-blue-600"
-            />
-            <PublicationCategory
-              title="UGC-Care Publications"
-              badge="2 Publications"
-              items={publications.ugc}
-              delay={0.4}
-              isInView={isInView}
-              gradient="from-purple-500 to-pink-500"
-              iconGradient="from-purple-500 to-pink-600"
-            />
-          </div>
-
-          {/* Conference Image - Right Side */}
-          <motion.div
-            className="lg:col-span-2 relative"
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="sticky top-24">
-              <div className="card-elevated p-3 rounded-2xl bg-card border border-border/50 overflow-hidden relative group shadow-lg">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-                <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
-                  <img
-                    src={researchImg}
-                    alt="AI & Machine Learning Research"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-
-                  {/* Overlay Gradient - Darkened for visibility */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90" />
-
-                  {/* Content Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/90 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider mb-3">
-                      <Brain className="w-3.5 h-3.5" />
-                      Published Researcher
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2 text-shadow-sm">
-                      Advancing ML Research
-                    </h3>
-                    <p className="text-white/90 text-sm leading-relaxed">
-                      SCI-indexed publications in Machine Learning with Impact Factor 7. Research spanning hybrid ML models, computer vision, and NLP.
-                    </p>
+        {/* Publications List — Full Width */}
+        <div className="max-w-3xl mx-auto space-y-4">
+          {categories.map((cat, catIndex) => (
+            <motion.div
+              key={cat.key}
+              initial={{ opacity: 0, y: 25 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.15 + catIndex * 0.1 }}
+              className="card-elevated overflow-hidden"
+            >
+              {/* Category Header */}
+              <button
+                onClick={() => setOpenCategory(openCategory === cat.key ? null : cat.key)}
+                className="w-full flex items-center justify-between p-5 hover:bg-muted/20 dark:hover:bg-white/[0.02] transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-muted dark:bg-white/[0.06] flex items-center justify-center">
+                    <BookOpen className={`w-5 h-5 ${cat.accentColor}`} />
+                  </div>
+                  <div className="text-left">
+                    <h3 className="font-heading font-bold text-base text-foreground">{cat.title}</h3>
+                    <span className="text-xs font-semibold text-muted-foreground">{cat.badge}</span>
                   </div>
                 </div>
-              </div>
-            </div>
-          </motion.div>
+                <motion.div
+                  animate={{ rotate: openCategory === cat.key ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-8 h-8 rounded-full bg-muted dark:bg-white/[0.04] flex items-center justify-center text-muted-foreground"
+                >
+                  <ChevronDown className="w-4 h-4" />
+                </motion.div>
+              </button>
+
+              {/* Papers List */}
+              <motion.div
+                initial={false}
+                animate={{
+                  height: openCategory === cat.key ? "auto" : 0,
+                  opacity: openCategory === cat.key ? 1 : 0
+                }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="px-5 pb-5 space-y-2">
+                  {cat.items.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-3 p-4 rounded-lg bg-muted/30 dark:bg-white/[0.02] border border-transparent hover:border-accent/15 transition-all"
+                    >
+                      <div className="w-8 h-8 rounded-md bg-muted dark:bg-white/[0.04] flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <FileText className="w-4 h-4 text-muted-foreground" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-sm font-medium text-foreground leading-relaxed">
+                          {item.title}
+                        </p>
+                        {item.impact && (
+                          <span className={`inline-flex items-center gap-1 text-xs font-bold ${cat.accentColor} mt-1.5`}>
+                            ★ {item.impact}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </section >
+    </section>
   );
 };
 

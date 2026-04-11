@@ -1,68 +1,63 @@
 import { motion } from "framer-motion";
 import { Mail, Linkedin, Github, ExternalLink, GraduationCap, Heart, ArrowUpRight, MessageCircle, Star } from "lucide-react";
+import { Logo } from "@/components/ui/Logo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Mail, href: "mailto:sumitmohan91@gmail.com", label: "Email", gradient: "from-rose-500 to-red-600" },
-    { icon: MessageCircle, href: "https://wa.me/919990562197", label: "WhatsApp", gradient: "from-emerald-500 to-teal-600" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/sumitmohan1991/", label: "LinkedIn", gradient: "from-blue-500 to-blue-600" },
-    { icon: Github, href: "https://github.com/sumitmohan1", label: "GitHub", gradient: "from-gray-500 to-gray-700" },
-    { icon: GraduationCap, href: "https://scholar.google.com/citations?user=EVVD-Z0AAAAJ", label: "Scholar", gradient: "from-purple-500 to-pink-600" },
-    { icon: Star, href: "https://astromology.com", label: "Astromology", gradient: "from-amber-500 to-orange-500" },
-    { icon: ExternalLink, href: "https://code2crack.com", label: "Code2Crack", gradient: "from-cyan-500 to-blue-500" },
+    { icon: Mail, href: "mailto:sumitmohan91@gmail.com", label: "Email" },
+    { icon: MessageCircle, href: "https://wa.me/919990562197", label: "WhatsApp" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/sumitmohan1991/", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/sumitmohan1", label: "GitHub" },
+    { icon: GraduationCap, href: "https://scholar.google.com/citations?user=EVVD-Z0AAAAJ", label: "Scholar" },
+    { icon: Star, href: "https://astromology.com", label: "Astromology" },
+    { icon: ExternalLink, href: "https://code2crack.com", label: "Code2Crack" },
   ];
 
   const quickLinks = [
     { label: "About", href: "#about" },
     { label: "Skills", href: "#expertise" },
-    { label: "Astromology", href: "#astromology" },
-    { label: "Code2Crack", href: "#code2crack" },
+    { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },
+    { label: "Research", href: "#publications" },
     { label: "Contact", href: "#contact" },
   ];
 
   return (
-    <footer className="relative overflow-hidden border-t border-border bg-background">
-      {/* Animated background orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-10 right-20 w-[300px] h-[300px] rounded-full"
-          style={{ background: 'radial-gradient(circle, hsl(192 100% 50% / 0.1) 0%, transparent 70%)' }}
-          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-20 left-10 w-[250px] h-[250px] rounded-full"
-          style={{ background: 'radial-gradient(circle, hsl(280 100% 60% / 0.08) 0%, transparent 70%)' }}
-          animate={{ scale: [1.1, 1, 1.1] }}
-          transition={{ duration: 12, repeat: Infinity }}
-        />
+    <footer className="relative bg-[#0A0F1C] border-t border-slate-800/50 overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-b from-blue-500/10 to-transparent blur-3xl opacity-30" />
       </div>
 
-      {/* Noise overlay */}
-      <div className="absolute inset-0 noise-overlay pointer-events-none" />
-
-      <div className="section-container relative z-10 py-20">
+      <div className="section-container relative z-10 py-16">
         <div className="grid md:grid-cols-3 gap-12 lg:gap-16 mb-16">
           {/* Brand */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <span className="font-heading text-3xl font-black text-shimmer block mb-4">
-              Sumit Mohan
-            </span>
-            <p className="text-muted-foreground text-base mb-6 max-w-xs leading-relaxed text-justify">
-              GenAI Engineer & Data Scientist. Building intelligent AI systems from research to production.
+            <div className="flex items-center gap-3 mb-6">
+              <Logo className="w-10 h-10 drop-shadow-lg" />
+              <div className="flex flex-col">
+                <span className="font-heading text-xl font-black text-white tracking-tight leading-none mb-1">
+                  Sumit Mohan
+                </span>
+                <span className="text-[0.65rem] font-bold tracking-[0.1em] text-cyan-400 uppercase">
+                  GenAI Engineer
+                </span>
+              </div>
+            </div>
+            <p className="text-slate-400 text-sm mb-6 max-w-sm leading-relaxed">
+              Architecting intelligent AI systems and production-grade pipelines. Translating cutting-edge research into robust, real-world solutions.
             </p>
-            <ul className="space-y-3 text-muted-foreground text-sm">
+            <ul className="space-y-3 text-slate-300 text-sm">
               <li>
-                <a href="mailto:sumitmohan91@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors group">
-                  <Mail className="h-4 w-4 group-hover:text-primary transition-colors text-muted-foreground" />
+                <a href="mailto:sumitmohan91@gmail.com" className="flex items-center gap-2.5 hover:text-cyan-400 transition-colors">
+                  <Mail className="h-4 w-4 text-slate-500" />
                   sumitmohan91@gmail.com
                 </a>
               </li>
@@ -71,30 +66,10 @@ const Footer = () => {
                   href="https://wa.me/919990562197"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-primary transition-colors group"
+                  className="flex items-center gap-2.5 hover:text-cyan-400 transition-colors"
                 >
-                  <MessageCircle className="h-4 w-4 group-hover:text-primary transition-colors text-muted-foreground" />
+                  <MessageCircle className="h-4 w-4 text-slate-500" />
                   +91-99905-62197
-                </a>
-              </li>
-              <li className="flex gap-4 pt-2">
-                <a
-                  href="https://github.com/sumitmohan1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-muted hover:bg-primary/10 p-2 rounded-full transition-all hover:text-primary"
-                  aria-label="GitHub"
-                >
-                  <Github className="h-4 w-4" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/sumitmohan1991/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-muted hover:bg-primary/10 p-2 rounded-full transition-all hover:text-primary"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-4 w-4" />
                 </a>
               </li>
             </ul>
@@ -102,86 +77,74 @@ const Footer = () => {
 
           {/* Quick Links */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-heading text-sm font-bold text-muted-foreground uppercase tracking-[0.2em] mb-6">
-              Quick Links
+            <h4 className="font-heading text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-6">
+              Navigation
             </h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-primary text-base transition-colors inline-flex items-center gap-2 group"
+                    className="text-slate-400 hover:text-white text-sm transition-colors inline-flex items-center gap-2 group"
                   >
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-cyan-400 transition-colors" />
                     {link.label}
-                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all text-primary" />
                   </a>
                 </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Social Links */}
+          {/* Social */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-heading text-sm font-bold text-muted-foreground uppercase tracking-[0.2em] mb-6">
+            <h4 className="font-heading text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-6">
               Connect
             </h4>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2.5">
               {socialLinks.map((link, index) => (
-                <motion.a
+                <a
                   key={index}
                   href={link.href}
-                  target={link.href.startsWith('mailto') || link.href.startsWith('tel') ? undefined : '_blank'}
-                  rel={link.href.startsWith('mailto') || link.href.startsWith('tel') ? undefined : 'noopener noreferrer'}
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${link.gradient} flex items-center justify-center text-white shadow-lg hover-glow transition-all duration-300`}
+                  target={link.href.startsWith('mailto') ? undefined : '_blank'}
+                  rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 hover:border-cyan-500/30 hover:-translate-y-1 transition-all duration-300 shadow-sm"
                   aria-label={link.label}
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
+                  title={link.label}
                 >
-                  <link.icon className="w-5 h-5" />
-                </motion.a>
+                  <link.icon className="w-4 h-4" />
+                </a>
               ))}
+            </div>
+            
+            <div className="mt-8 p-4 rounded-xl bg-white/[0.02] border border-white/5">
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Currently open to <span className="text-white font-medium">GenAI</span> & <span className="text-white font-medium">Data Engineering</span> roles worldwide.
+              </p>
             </div>
           </motion.div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-border pt-10">
+        {/* Divider + Bottom */}
+        <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <motion.p
-              className="text-muted-foreground/60 text-sm"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
+            <p className="text-slate-500 text-xs font-medium tracking-wide">
               © {currentYear} Sumit Mohan. All rights reserved.
-            </motion.p>
-            <motion.p
-              className="text-muted-foreground/60 text-sm flex items-center gap-2"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              Crafted with
-              <motion.span
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 1, repeat: Infinity }}
-              >
-                <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
-              </motion.span>
-              for AI excellence
-            </motion.p>
+            </p>
+            <p className="text-slate-500 text-xs font-medium tracking-wide flex items-center gap-1.5">
+              Designed with 
+              <Heart className="w-3.5 h-3.5 text-rose-500/80 fill-rose-500/80" />
+              for the future
+            </p>
           </div>
         </div>
       </div>
