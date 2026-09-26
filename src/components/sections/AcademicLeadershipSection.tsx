@@ -7,6 +7,7 @@ import {
   Briefcase,
   GraduationCap,
   Building2,
+  Award
 } from "lucide-react";
 
 const leadershipAreas = [
@@ -47,7 +48,13 @@ const AcademicLeadershipSection = () => {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="leadership" className="section-padding bg-background overflow-hidden relative">
+    <section id="leadership" className="section-padding relative overflow-hidden bg-slate-50/50 dark:bg-[#07090E] transition-colors duration-300">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none" />
+
+      {/* Crisp dot grid pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] dark:bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+
       <div className="section-container relative z-10" ref={containerRef}>
         {/* Header */}
         <motion.div
@@ -56,51 +63,57 @@ const AcademicLeadershipSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <motion.span
-            className="section-badge mb-6 inline-flex"
-            initial={{ opacity: 0, y: 20 }}
+          <motion.div
+            className="mb-4"
+            initial={{ opacity: 0, y: 15 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
           >
-            Leadership
-          </motion.span>
-          <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-black text-foreground mb-5 leading-tight">
-            Academic & <span className="text-shimmer">Administrative Leadership</span>
+            <span className="section-badge inline-flex items-center gap-1.5">
+              <Award className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
+              Administrative Impact
+            </span>
+          </motion.div>
+
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-[2.6rem] font-bold text-slate-900 dark:text-white mb-5 leading-tight">
+            Academic & Institutional <span className="bg-gradient-to-r from-cyan-600 via-sky-500 to-indigo-600 dark:from-cyan-400 dark:via-sky-300 dark:to-indigo-400 bg-clip-text text-transparent">Leadership</span>
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground">
-            Strategic oversight of academic programs, faculty development, and institutional growth.
+
+          <p className="text-base md:text-lg text-slate-600 dark:text-slate-300">
+            Key areas of administrative responsibility, curriculum innovation, and academic operations.
           </p>
         </motion.div>
 
-        {/* Leadership Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {leadershipAreas.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 25 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="group hover-lift"
-            >
-              <div className="h-full card-elevated p-6 relative overflow-hidden">
-                {/* Left accent on hover */}
-                <div className="absolute top-0 left-0 w-1 h-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r" />
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {leadershipAreas.map((area, index) => {
+            const IconComponent = area.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 25 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative flex flex-col rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm shadow-slate-200/50 hover:shadow-xl dark:border-slate-700/60 dark:bg-slate-800/40 dark:shadow-none dark:hover:bg-slate-800/70 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+              >
+                {/* Top gradient line */}
+                <div className="h-[2px] absolute top-0 left-0 right-0 bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-muted dark:bg-white/[0.06] flex items-center justify-center group-hover:bg-accent/10 transition-colors duration-300">
-                    <item.icon className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors duration-300" />
+                  <div className="w-11 h-11 rounded-xl bg-cyan-50 border border-cyan-200/70 dark:bg-cyan-500/10 dark:border-cyan-500/25 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                    <IconComponent className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
                   </div>
                   <div>
-                    <h3 className="font-heading font-bold text-sm text-foreground mb-1.5 group-hover:text-primary transition-colors">
-                      {item.title}
+                    <h3 className="font-heading text-base font-bold text-slate-900 dark:text-white mb-2 leading-snug group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                      {area.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {item.description}
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                      {area.description}
                     </p>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

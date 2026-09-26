@@ -27,7 +27,7 @@ const TrustSection = () => {
                 <metric.icon className="w-4 h-4 text-accent" />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-black font-heading text-foreground leading-none">
+                <span className="text-xl font-bold font-heading text-foreground leading-none">
                   {metric.value}
                 </span>
                 <span className="text-[0.65rem] font-semibold text-muted-foreground uppercase tracking-wider mt-0.5">

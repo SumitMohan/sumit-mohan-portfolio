@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/layout/Header";
 import HeroSection from "@/components/sections/HeroSection";
+import ArchitectureSection from "@/components/sections/ArchitectureSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ExpertiseSection from "@/components/sections/ExpertiseSection";
 import AstromologySection from "@/components/sections/AstromologySection";
@@ -14,6 +15,7 @@ import Footer from "@/components/sections/Footer";
 import TrustSection from "@/components/sections/TrustSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import BackToTop from "@/components/ui/BackToTop";
 
 const SectionDivider = () => (
   <div className="section-divider mx-auto px-4 sm:px-6 lg:px-8" />
@@ -40,11 +42,18 @@ const Index = () => {
       </Helmet>
 
       <div className="min-h-screen">
+        {/* Accessibility: Skip to content link */}
+        <a href="#main-content" className="skip-to-content">
+          Skip to main content
+        </a>
         <ScrollProgress />
+        <BackToTop />
         <Header />
-        <main>
+        <main id="main-content">
           <HeroSection />
           <TrustSection />
+          <ArchitectureSection />
+          <SectionDivider />
           <AboutSection />
           <SectionDivider />
           <ExpertiseSection />
